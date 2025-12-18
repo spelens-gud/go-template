@@ -1,0 +1,31 @@
+{
+  "openapi": "{{ .OpenAPI }}",
+  "info": {
+    "title": "{{ .Info.title }}",
+    "description": "{{ .Info.description }}",
+    "version": "{{ .Info.version }}"
+  },
+  "servers": [
+{{- range $index, $server := .Servers }}
+    {
+      "url": "{{ $server.URL }}",
+      "description": "{{ $server.Description }}"
+    }{{ if not $server.IsLast }},{{ end }}
+{{- end }}
+  ],
+{{- if .Tags }}
+  "tags": [
+{{- range $index, $tag := .Tags }}
+    {
+      "name": "{{ $tag.Name }}",
+      "description": "{{ $tag.Description }}"
+    }{{ if not $tag.IsLast }},{{ end }}
+{{- end }}
+  ],
+{{- end }}
+  "paths": {{ .PathsJSON }}{{ if .SchemasJSON }},
+  "components": {
+    "schemas": {{ .SchemasJSON }}
+  }
+{{- end }}
+}

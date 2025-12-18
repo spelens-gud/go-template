@@ -1,0 +1,391 @@
+{
+  "apis/controller.go": {
+    "mod_time": "2025-12-18T19:44:17.288913933+08:00",
+    "elements": null,
+    "hash": "d7529393a61d19b4d025be62d94e21db"
+  },
+  "apis/root.go": {
+    "mod_time": "2025-12-18T19:46:14.23303826+08:00",
+    "elements": null,
+    "hash": "14d03d7e8b6d3453d7ab9e94b4fdbe53"
+  },
+  "apis/services.go": {
+    "mod_time": "2025-12-18T19:45:51.527169719+08:00",
+    "elements": [
+      {
+        "Name": "Services",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apis",
+        "PkgPath": "go-template/apis",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "service"
+      }
+    ],
+    "hash": "22f9d95dc869e8292c18cb75359e6484"
+  },
+  "apis/tools/tools.go": {
+    "mod_time": "2025-12-18T19:24:09.49248212+08:00",
+    "elements": null,
+    "hash": "9966582634c7ab36b800ade43f6f6348"
+  },
+  "apis/works.go": {
+    "mod_time": "2025-12-18T19:45:09.205048857+08:00",
+    "elements": null,
+    "hash": "8abfd2cf8022230421d0b531a4ec9593"
+  },
+  "clients/client.go": {
+    "mod_time": "2025-12-18T19:22:13.95137735+08:00",
+    "elements": null,
+    "hash": "3ab131db6a8bace11d0f58fd926e2bdd"
+  },
+  "clients/tools/tools.go": {
+    "mod_time": "2025-12-18T19:22:13.950401955+08:00",
+    "elements": null,
+    "hash": "4144dffc02ec05eacf894c5cc61de1b4"
+  },
+  "cmd/root.go": {
+    "mod_time": "2025-12-18T16:45:26.206819753+08:00",
+    "elements": null,
+    "hash": "8615787632936db361b00e23e86d76fb"
+  },
+  "cmd/server.go": {
+    "mod_time": "2025-12-18T17:54:59.372975648+08:00",
+    "elements": null,
+    "hash": "472c92b07cf76e1f062153836aee50cb"
+  },
+  "cmd/worker.go": {
+    "mod_time": "2025-12-18T17:55:12.029116255+08:00",
+    "elements": null,
+    "hash": "e71caf78c39a63fdaf9da1ec301d7f14"
+  },
+  "config/config.go": {
+    "mod_time": "2025-12-18T19:46:44.772800754+08:00",
+    "elements": [
+      {
+        "Name": "Config",
+        "Constructor": "",
+        "Fields": [
+          "MetricsGatewayConfig",
+          "MysqlConfig",
+          "ServerConfig",
+          "TracerConfig"
+        ],
+        "Implements": null,
+        "Pkg": "config",
+        "PkgPath": "go-template/config",
+        "InitWire": false,
+        "ConfigWire": true,
+        "SetName": "config"
+      }
+    ],
+    "hash": "0fb1611b2d7ac05dd6277327e48a30d2"
+  },
+  "config/loader.go": {
+    "mod_time": "2025-12-18T17:57:28.559088562+08:00",
+    "elements": null,
+    "hash": "c2733c9b0f72e11d1b726105253ccabe"
+  },
+  "dao/operation_logs_dao.go": {
+    "mod_time": "2025-12-18T19:19:56.757361227+08:00",
+    "elements": null,
+    "hash": "f36af3daf6fb93f702b8609acccf64c7"
+  },
+  "internal/apps/app.go": {
+    "mod_time": "2025-12-18T16:51:58.455147797+08:00",
+    "elements": null,
+    "hash": "5de6ef8c1c03bcb78bb742d20f202934"
+  },
+  "internal/apps/runtime.go": {
+    "mod_time": "2025-12-18T16:58:51.677190292+08:00",
+    "elements": [
+      {
+        "Name": "Runtime",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "InitMetricsPush",
+        "Constructor": "InitMetricsPush",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "InitTracer",
+        "Constructor": "InitTracer",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "d36b3b17c9bf24ed92e7e37de2626014"
+  },
+  "internal/apps/server.go": {
+    "mod_time": "2025-12-18T16:58:28.770894803+08:00",
+    "elements": [
+      {
+        "Name": "InitGinServer",
+        "Constructor": "InitGinServer",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "BaseServer",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "27c7255604c80281c179bfd32f0387a0"
+  },
+  "internal/apps/server/server.go": {
+    "mod_time": "2025-12-18T16:57:03.724198519+08:00",
+    "elements": [
+      {
+        "Name": "Server",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "server",
+        "PkgPath": "go-template/internal/apps/server",
+        "InitWire": true,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "860e6cfd26e6fd4036ba7e04c881ac91"
+  },
+  "internal/apps/worker.go": {
+    "mod_time": "2025-12-18T16:58:36.410295378+08:00",
+    "elements": [
+      {
+        "Name": "InitWorkerManager",
+        "Constructor": "InitWorkerManager",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "BaseWorker",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "go-template/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "9af349167d087e8c6ac32d6fd249e6d4"
+  },
+  "internal/apps/worker/worker.go": {
+    "mod_time": "2025-12-18T16:57:43.391581767+08:00",
+    "elements": [
+      {
+        "Name": "Worker",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "worker",
+        "PkgPath": "go-template/internal/apps/worker",
+        "InitWire": true,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "4960369084837375f25b345018b5eb32"
+  },
+  "internal/dao_impls/dao_operation_logs_dao/create.go": {
+    "mod_time": "2025-12-18T19:20:06.896051993+08:00",
+    "elements": null,
+    "hash": "99d915cfbc75690e1b3148d969f7e759"
+  },
+  "internal/dao_impls/dao_operation_logs_dao/delete.go": {
+    "mod_time": "2025-12-18T19:20:06.576023186+08:00",
+    "elements": null,
+    "hash": "6521fc990e41d15c352bb9a1a2c7b383"
+  },
+  "internal/dao_impls/dao_operation_logs_dao/get_by_id.go": {
+    "mod_time": "2025-12-18T19:20:06.701673401+08:00",
+    "elements": null,
+    "hash": "2204c13e1374f1e4dc903a933f128dea"
+  },
+  "internal/dao_impls/dao_operation_logs_dao/init.go": {
+    "mod_time": "2025-12-18T19:20:03.353486113+08:00",
+    "elements": [
+      {
+        "Name": "DaoImpl",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": [
+          "dao.OperationLogsDao"
+        ],
+        "Pkg": "dao_operation_logs_dao",
+        "PkgPath": "go-template/internal/dao_impls/dao_operation_logs_dao",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "dao"
+      }
+    ],
+    "hash": "06e5c37d0f57b096aa69b150e7dcdeb1"
+  },
+  "internal/dao_impls/dao_operation_logs_dao/list.go": {
+    "mod_time": "2025-12-18T19:20:06.798256768+08:00",
+    "elements": null,
+    "hash": "7914add665d7f6da8fef1aacba73e220"
+  },
+  "internal/dao_impls/dao_operation_logs_dao/update.go": {
+    "mod_time": "2025-12-18T19:20:06.998977865+08:00",
+    "elements": null,
+    "hash": "90e74a6e4087c632eac0f080b79cbc23"
+  },
+  "internal/database/kafka.go": {
+    "mod_time": "2025-12-18T18:04:24.142116653+08:00",
+    "elements": [
+      {
+        "Name": "InitKafkaClient",
+        "Constructor": "InitKafkaClient",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "go-template/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      },
+      {
+        "Name": "InitKafkaProducer",
+        "Constructor": "InitKafkaProducer",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "go-template/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      }
+    ],
+    "hash": "344919e5238e0c19cf477eefd58e8ce9"
+  },
+  "internal/database/redis.go": {
+    "mod_time": "2025-12-18T16:53:06.735460485+08:00",
+    "elements": [
+      {
+        "Name": "InitRedis",
+        "Constructor": "InitRedis",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "go-template/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      },
+      {
+        "Name": "InitRedisCluster",
+        "Constructor": "InitRedisCluster",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "go-template/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      }
+    ],
+    "hash": "c0c0542c763851401aa0b0c9323be83d"
+  },
+  "internal/database/sql.go": {
+    "mod_time": "2025-12-18T19:38:42.535855834+08:00",
+    "elements": [
+      {
+        "Name": "InitSql",
+        "Constructor": "InitSql",
+        "Fields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "go-template/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      }
+    ],
+    "hash": "15947900605e4e1f2cdbac59d825a26c"
+  },
+  "internal/svc_impls/svc_tools_service/init.go": {
+    "mod_time": "2025-12-18T19:29:39.361574458+08:00",
+    "elements": [
+      {
+        "Name": "Service",
+        "Constructor": "",
+        "Fields": null,
+        "Implements": [
+          "service.ToolsService"
+        ],
+        "Pkg": "svc_tools_service",
+        "PkgPath": "go-template/internal/svc_impls/svc_tools_service",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "service"
+      }
+    ],
+    "hash": "48c9c32efe2c2a25c30e4627fa0d9fa3"
+  },
+  "internal/svc_impls/svc_tools_service/ping.go": {
+    "mod_time": "2025-12-18T19:32:04.300414283+08:00",
+    "elements": null,
+    "hash": "612301755fdabf2aa93f240bdd07c14c"
+  },
+  "internal/table/operation_logs.go": {
+    "mod_time": "2025-12-18T19:14:17.843841185+08:00",
+    "elements": null,
+    "hash": "bdaa0e591cf809e3b328ff508d435566"
+  },
+  "internal/version/version.go": {
+    "mod_time": "2025-12-18T11:57:14.608638548+08:00",
+    "elements": null,
+    "hash": "505497166c8b733879a4edd3feb82687"
+  },
+  "main.go": {
+    "mod_time": "2025-12-18T16:42:14.222557229+08:00",
+    "elements": null,
+    "hash": "59fe5e106a33e4ee13c8a22236fe044e"
+  },
+  "service/ping.go": {
+    "mod_time": "2025-12-18T19:24:16.998806399+08:00",
+    "elements": null,
+    "hash": "cc97959df5a5071abc067a46db83ca51"
+  }
+}

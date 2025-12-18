@@ -1,0 +1,12 @@
+package {{ .PackageName }}
+
+import (
+{{ range .Services }}	"{{ .PackagePath }}"
+{{ end }}
+)
+
+// @autowire(set=Services)
+type Services struct {
+{{ range .Services }}	{{ .FieldName }} {{ .PackageName }}.{{ .InterfaceName }}
+{{ end }}
+}

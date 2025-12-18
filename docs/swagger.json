@@ -1,0 +1,109 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API系统",
+    "description": "API系统接口",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:6066/api/v1",
+      "description": "API 服务器"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tools",
+      "description": "Tools相关接口"
+    }
+  ],
+  "paths": {
+      "/tools/ping": {
+        "get": {
+          "description": "",
+          "parameters": [
+            {
+              "description": "service.PingParam",
+              "in": "query",
+              "name": "service.PingParam",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PingRes"
+                  }
+                }
+              },
+              "description": "成功"
+            },
+            "400": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "code": {
+                        "type": "integer"
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "ok": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "失败响应"
+            },
+            "500": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "properties": {
+                      "code": {
+                        "type": "integer"
+                      },
+                      "message": {
+                        "type": "string"
+                      },
+                      "ok": {
+                        "type": "boolean"
+                      }
+                    },
+                    "type": "object"
+                  }
+                }
+              },
+              "description": "失败响应"
+            }
+          },
+          "summary": "",
+          "tags": [
+            "Tools"
+          ]
+        }
+      }
+    },
+  "components": {
+    "schemas": {
+        "PingRes": {
+          "properties": {
+            "data": {
+              "description": "data",
+              "type": "string"
+            }
+          },
+          "type": "object"
+        }
+      }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "server_config": {
+    "addr": ":6066",
+    "read_timeout_seconds": 0,
+    "read_header_timeout_seconds": 0,
+    "write_timeout_seconds": 0,
+    "idle_timeout_seconds": 0,
+    "close_wait_seconds": 0,
+    "graceful_restart": false,
+    "enable_async_logger": false
+  },
+  "kuaidi100_config": {
+    "key": "dWuqqmZA1984",
+    "customer": "E3A82A37876B1A96CFA781FCEC19683D"
+  },
+  "dapi_config": {
+    "app_key": "16668412",
+    "app_secret": "RQjQI1uutAplbIY9ic"
+  },
+  "db_config": {
+    "type": "postgres",
+    "ssl_mode": "disable",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "db": "mydb",
+    "user": "postgres",
+    "password": "123456"
+  },
+  "alibaba1688_config": {
+    "app_key": "9185041",
+    "app_secret": "qsbfMEPhHk",
+    "redirect_uri": "http://localhost:6066/api/v1/alibaba1688/oauth_callback",
+    "base_url": "https://gw.open.1688.com/openapi/",
+    "auth_url": "https://auth.1688.com/oauth/authorize/",
+    "token_url": "https://gw.open.1688.com/openapi/http/1/system.oauth2/getToken/"
+  }
+}

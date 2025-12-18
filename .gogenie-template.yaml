@@ -31,6 +31,6 @@ variables:
     type: "string"
   Repository:
     description: "项目 Git 仓库地址"
-    default: {{.ProjectName}}
+    default: "{{.ProjectName}}"  # 修复：添加引号
     required: true
     type: "string"

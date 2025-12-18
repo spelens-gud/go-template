@@ -144,6 +144,8 @@ fi
 if [ ! -d ".git" ]; then
     git init &> /dev/null && echo "✓ 初始化 Git"
     git checkout -b main &> /dev/null || git checkout -b master &> /dev/null || true
+    git add . &> /dev/null
+    git commit -m "chore: initial commit" &> /dev/null && echo "✓ 项目初始化提交"
 fi
 
 if [ -f ".pre-commit-config.yaml" ] && command -v pre-commit &> /dev/null; then

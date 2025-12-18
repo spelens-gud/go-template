@@ -23,6 +23,10 @@ if command -v gogenie &> /dev/null; then
     gogenie init -d &> /dev/null && echo "✓ 初始化项目目录"
 fi
 
+if [ -f "Makefile" ] && command -v make &> /dev/null && grep -q "^fmt:" Makefile; then
+    make fmt &> /dev/null && echo "✓ 格式化代码"
+fi
+
 if [ ! -d ".git" ]; then
     git init &> /dev/null && echo "✓ 初始化 Git"
     git checkout -b main &> /dev/null || git checkout -b master &> /dev/null || true
@@ -34,6 +38,4 @@ if [ -f ".pre-commit-config.yaml" ] && command -v pre-commit &> /dev/null; then
     pre-commit install &> /dev/null && echo "✓ 安装 pre-commit hooks"
 fi
 
-if [ -f "Makefile" ] && command -v make &> /dev/null && grep -q "^fmt:" Makefile; then
-    make fmt &> /dev/null && echo "✓ 格式化代码"
-fi
+

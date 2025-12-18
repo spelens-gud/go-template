@@ -1,19 +1,18 @@
 package database
 
 import (
-	gormctx2 "git.bestfulfill.tech/devops/go-core/implements/gormctx/v2"
-	"git.bestfulfill.tech/devops/go-core/interfaces/isql"
+	gormctx2 "github.com/spelens-gud/Verktyg/implements/gormctx/v2"
+	"github.com/spelens-gud/Verktyg/interfaces/isql"
 )
 
-type (
-	Mysql       isql.Gorm2SQL
-	MysqlConfig isql.SQLConfig
-)
+// @db()
+type DB isql.Gorm2SQL // gorm的db句柄
 
-// 单个sql数据库
+// @db_config()
+type DBConfig isql.SQLConfig // 数据库配置
+
 // @autowire(set=db)
-// @sql_config(config=MysqlConfig)
-func InitSql(config MysqlConfig) (sql Mysql, cf func(), err error) {
+func InitSql(config DBConfig) (sql DB, cf func(), err error) {
 	if sql, err = gormctx2.InitGormV2Sql(isql.SQLConfig(config)); err == nil {
 		cf = func() {
 			_ = sql.Close()

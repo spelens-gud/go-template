@@ -5,8 +5,8 @@ import (
 
 	"gorm.io/gorm"
 
-	dao "go-template/dao"
-	"go-template/internal/table"
+	dao "{{.ProjectName}}/dao"
+	"{{.ProjectName}}/internal/table"
 )
 
 func (d *DaoImpl) List(ctx context.Context, db *gorm.DB, query dao.OperationLogsDaoQuery) ([]*table.OperationLogs, int64, error) {

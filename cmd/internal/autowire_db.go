@@ -6,7 +6,7 @@
 package internal
 
 import (
-	"go-template/internal/database"
+	"{{.ProjectName}}/internal/database"
 
 	"github.com/google/wire"
 )

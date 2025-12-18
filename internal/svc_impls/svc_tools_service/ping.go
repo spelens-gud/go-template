@@ -2,12 +2,13 @@ package svc_tools_service
 
 import (
 	"context"
-	"go-template/internal/table"
-	service "go-template/service"
+
+	"{{.ProjectName}}/internal/table"
+	service "{{.ProjectName}}/service"
 )
 
-func (s *Service) Ping(ctx context.Context, params service.PingParam) (res service.PingRes, err error) {
-	_ = s.OperationLogsDao.Create(ctx, s.SQL.GetDB(ctx), &table.OperationLogs{
+func (s *Service) Ping(ctx context.Context, params service.PingParam) (res string, err error) {
+	_ = s.OperationLogsDao.Create(ctx, s.Db.GetDB(ctx), &table.OperationLogs{
 		OperationType: "",
 		Name:          "test",
 		RecordId:      1,
@@ -16,7 +17,7 @@ func (s *Service) Ping(ctx context.Context, params service.PingParam) (res servi
 	})
 
 	if params.Data == "ping" {
-		return service.PingRes{Data: "pong"}, nil
+		return "pong", nil
 	}
 
 	return

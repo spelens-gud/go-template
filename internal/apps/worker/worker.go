@@ -1,18 +1,19 @@
 package worker
 
 import (
-	"git.bestfulfill.tech/devops/go-core/interfaces/iconfig"
-	"git.bestfulfill.tech/devops/go-core/interfaces/iworker"
-	"git.bestfulfill.tech/devops/go-core/kits/kstruct/structgraphx"
+	"github.com/spelens-gud/Verktyg/interfaces/iconfig"
+	"github.com/spelens-gud/Verktyg/interfaces/iworker"
+	"github.com/spelens-gud/Verktyg/kits/kstruct/structgraphx"
 
-	"go-template/apis"
-	"go-template/internal/apps"
+	"{{.ProjectName}}/apis"
+	"{{.ProjectName}}/internal/apps"
 )
 
 // @autowire.init()
+// @mount(api_server,base_worker)
 type Worker struct {
-	Services   apis.Services
-	BaseWorker apps.BaseWorker
+	Services   apis.Services   `json:"services"`
+	BaseWorker apps.BaseWorker `json:"base_worker"`
 }
 
 func (app *Worker) Run() {

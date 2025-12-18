@@ -1,9 +1,9 @@
 package apps
 
 import (
-	"git.bestfulfill.tech/devops/go-core/implements/worker"
-	"git.bestfulfill.tech/devops/go-core/interfaces/iworker"
 	"github.com/robfig/cron/v3"
+	"github.com/spelens-gud/Verktyg/implements/worker"
+	"github.com/spelens-gud/Verktyg/interfaces/iworker"
 )
 
 // @autowire(set=init)
@@ -12,6 +12,7 @@ func InitWorkerManager() iworker.WorkerManager {
 }
 
 // @autowire(set=init)
+// @base_worker()
 type BaseWorker struct {
 	Runtime       Runtime
 	WorkerManager iworker.WorkerManager

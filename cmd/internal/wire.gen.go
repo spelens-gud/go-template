@@ -6,9 +6,9 @@
 package internal
 
 import (
-	"go-template/config"
-	"go-template/internal/apps/server"
-	"go-template/internal/apps/worker"
+	"{{.ProjectName}}/config"
+	"{{.ProjectName}}/internal/apps/server"
+	"{{.ProjectName}}/internal/apps/worker"
 
 	"github.com/google/wire"
 )

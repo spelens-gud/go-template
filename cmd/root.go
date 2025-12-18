@@ -5,9 +5,9 @@ import (
 	"bytes"
 	"context"
 	"fmt"
-	"go-template/internal/version"
 	"io"
 	"os"
+	"{{.ProjectName}}/internal/version"
 
 	"github.com/charmbracelet/colorprofile"
 	"github.com/charmbracelet/fang"
@@ -16,7 +16,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const ProjectName = "go-template"
+const ProjectName = "{{.ProjectName}}"
 
 // rootCmd represents the base command when called without any subcommands.
 var rootCmd = &cobra.Command{

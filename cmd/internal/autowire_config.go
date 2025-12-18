@@ -6,11 +6,11 @@
 package internal
 
 import (
-	"go-template/config"
+	"{{.ProjectName}}/config"
 
 	"github.com/google/wire"
 )
 
 var ConfigSet = wire.NewSet(
-	wire.FieldsOf(new(*config.Config), "MetricsGatewayConfig", "MysqlConfig", "ServerConfig", "TracerConfig"),
+	wire.FieldsOf(new(*config.Config), "DbConfig", "MetricsGatewayConfig", "ServerConfig", "TracerConfig"),
 )

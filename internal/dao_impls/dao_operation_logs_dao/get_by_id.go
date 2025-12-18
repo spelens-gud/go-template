@@ -5,7 +5,7 @@ import (
 
 	"gorm.io/gorm"
 
-	"go-template/internal/table"
+	"{{.ProjectName}}/internal/table"
 )
 
 func (d *DaoImpl) GetByID(ctx context.Context, db *gorm.DB, id int64) (*table.OperationLogs, error) {

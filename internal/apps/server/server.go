@@ -1,22 +1,24 @@
 package server
 
 import (
-	"go-template/apis"
+	"{{.ProjectName}}/apis"
+	"{{.ProjectName}}/internal/database"
 
 	"github.com/gin-gonic/gin"
+	"github.com/spelens-gud/Verktyg/kits/kserver"
 
-	"git.bestfulfill.tech/devops/go-core/interfaces/iconfig"
-	"git.bestfulfill.tech/devops/go-core/kits/kserver"
-	"git.bestfulfill.tech/devops/go-core/kits/kstruct/structgraphx"
+	"github.com/spelens-gud/Verktyg/interfaces/iconfig"
+	"github.com/spelens-gud/Verktyg/kits/kstruct/structgraphx"
 
-	"go-template/internal/apps"
+	"{{.ProjectName}}/internal/apps"
 )
 
 // @autowire.init()
+// @mount(api_server,base_server,server_config)
 type Server struct {
-	Services   apis.Services
-	BaseServer apps.BaseServer
-	Config     kserver.Config `structgraph:"-"`
+	BaseServer   apps.BaseServer       `json:"base_server"`
+	ServerConfig database.ServerConfig `json:"server_config"`
+	Services     apis.Services         `json:"services"`
 }
 
 func (app *Server) Run() {
@@ -25,5 +27,5 @@ func (app *Server) Run() {
 	}
 	app.BaseServer.Start(func(router gin.IRouter) {
 		app.Services.RegisterRouter(router)
-	}, app.Config)
+	}, kserver.Config(app.ServerConfig))
 }

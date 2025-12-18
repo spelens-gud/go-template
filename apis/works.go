@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"git.bestfulfill.tech/devops/go-core/interfaces/iworker"
+	"github.com/spelens-gud/Verktyg/interfaces/iworker"
 )
 
 func (svc *Services) RegisterWorks(worker iworker.WorkerManager) {

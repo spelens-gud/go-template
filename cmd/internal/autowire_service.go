@@ -6,9 +6,9 @@
 package internal
 
 import (
-	"go-template/apis"
-	"go-template/internal/svc_impls/svc_tools_service"
-	"go-template/service"
+	"{{.ProjectName}}/apis"
+	"{{.ProjectName}}/internal/svc_impls/svc_tools_service"
+	"{{.ProjectName}}/service"
 
 	"github.com/google/wire"
 )

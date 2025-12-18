@@ -3,7 +3,7 @@ package apps
 import (
 	"fmt"
 
-	"go-template/config"
+	"{{.ProjectName}}/config"
 )
 
 type App interface {

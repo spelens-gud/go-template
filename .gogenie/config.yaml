@@ -1,7 +1,7 @@
 global:
     project:
-        name: go-template
-        module: go-template
+        name: {{.ProjectName}}
+        module: {{.ProjectName}}
         version: 1.0.0
         author: ""
     output:
@@ -110,10 +110,11 @@ commands:
               pkgPrefix: dao
               template: impl
     mount:
-        enable: false
+        enable: true
         scope: ./
         name: mount
         args: []
+        tag: json
     template:
         enabled: true
         model_path: ./internal/table

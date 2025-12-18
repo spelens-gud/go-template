@@ -2,12 +2,13 @@ package dao
 
 import (
 	"context"
-	"go-template/internal/table"
+	"{{.ProjectName}}/internal/table"
 
 	"gorm.io/gorm"
 )
 
 // @dao(OperationLogsDao)
+// @operDao()
 // OperationLogsDao interface 操作日志接口.
 type OperationLogsDao interface {
 	// Create 创建操作日志.

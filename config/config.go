@@ -1,22 +1,17 @@
 package config
 
 import (
-	"go-template/internal/database"
+	"{{.ProjectName}}/internal/database"
 
-	"git.bestfulfill.tech/devops/go-core/implements/otrace"
-	"git.bestfulfill.tech/devops/go-core/implements/promgateway"
-	"git.bestfulfill.tech/devops/go-core/kits/kserver"
+	"github.com/spelens-gud/Verktyg/implements/otrace"
+	"github.com/spelens-gud/Verktyg/implements/promgateway"
 )
 
 // @autowire.config()
-// @mount(sql_config)
+// @mount(db_config,server_config,config)
 type Config struct {
-	// 服务器配置
-	ServerConfig kserver.Config `json:"server_config"`
-	// 链路追踪配置
-	TracerConfig otrace.JaegerConfig `json:"tracer_config"`
-	// PrometheusGateway配置
+	DbConfig             database.DBConfig         `json:"db_config"`
 	MetricsGatewayConfig promgateway.GatewayConfig `json:"metrics_gateway_config"`
-	// 数据库配置
-	MysqlConfig database.MysqlConfig `json:"db_config"`
+	TracerConfig         otrace.JaegerConfig       `json:"tracer_config"`
+	ServerConfig         database.ServerConfig     `json:"server_config"`
 }

@@ -3,11 +3,11 @@ package apps
 import (
 	_ "go.uber.org/automaxprocs"
 
-	"git.bestfulfill.tech/devops/go-core/implements/otrace"
-	"git.bestfulfill.tech/devops/go-core/implements/promgateway"
-	"git.bestfulfill.tech/devops/go-core/interfaces/imetrics"
-	"git.bestfulfill.tech/devops/go-core/interfaces/itrace"
-	"git.bestfulfill.tech/devops/go-core/kits/ktrace/tracerinit"
+	"github.com/spelens-gud/Verktyg/implements/otrace"
+	"github.com/spelens-gud/Verktyg/implements/promgateway"
+	"github.com/spelens-gud/Verktyg/interfaces/imetrics"
+	"github.com/spelens-gud/Verktyg/interfaces/itrace"
+	"github.com/spelens-gud/Verktyg/kits/ktrace/tracerinit"
 )
 
 // @autowire(set=init)
@@ -29,5 +29,5 @@ func InitMetricsPush(gatewayCfg promgateway.GatewayConfig) (daemon imetrics.Gate
 // @autowire(set=init)
 // @config(config=TracerConfig)
 func InitTracer(config otrace.JaegerConfig) (tc itrace.Tracer, cleanup func(), err error) {
-	return tracerinit.InitTracer(config)
+	return tracerinit.InitTracers(config)
 }

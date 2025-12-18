@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"go-template/apis/tools"
+	"{{.ProjectName}}/apis/tools"
 
 	svrlessgin "github.com/Just-maple/serverless-gin"
 	"github.com/gin-gonic/gin"

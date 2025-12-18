@@ -5,7 +5,7 @@ package client_tools
 import (
 	"context"
 
-	"go-template/service"
+	"{{.ProjectName}}/service"
 )
 
 var _ ToolsClient = &Client{}

@@ -1,34 +1,4 @@
 {
-	"server_config": {
-		"addr": "",
-		"read_timeout_seconds": 0,
-		"read_header_timeout_seconds": 0,
-		"write_timeout_seconds": 0,
-		"idle_timeout_seconds": 0,
-		"close_wait_seconds": 0,
-		"graceful_restart": false,
-		"enable_async_logger": false
-	},
-	"tracer_config": {
-		"ServiceName": "",
-		"Disabled": false,
-		"RPCMetrics": false,
-		"Tags": null,
-		"Sampler": null,
-		"Reporter": null,
-		"Headers": null,
-		"BaggageRestrictions": null,
-		"Throttler": null
-	},
-	"metrics_gateway_config": {
-		"job": "",
-		"gateway_url": "",
-		"interval_seconds": 0,
-		"enable_log": false,
-		"disable_defer_delete": false,
-		"username": "",
-		"password": ""
-	},
 	"db_config": {
 		"type": "",
 		"ssl_mode": "",
@@ -46,5 +16,35 @@
 		"max_idle_time_ms": 0,
 		"disable_interceptor": false,
 		"slowlog_threshold_ms": 0
+	},
+	"metrics_gateway_config": {
+		"job": "",
+		"gateway_url": "",
+		"interval_seconds": 0,
+		"enable_log": false,
+		"disable_defer_delete": false,
+		"username": "",
+		"password": ""
+	},
+	"tracer_config": {
+		"ServiceName": "",
+		"Disabled": false,
+		"RPCMetrics": false,
+		"Tags": null,
+		"Sampler": null,
+		"Reporter": null,
+		"Headers": null,
+		"BaggageRestrictions": null,
+		"Throttler": null
+	},
+	"server_config": {
+		"addr": "",
+		"read_timeout_seconds": 0,
+		"read_header_timeout_seconds": 0,
+		"write_timeout_seconds": 0,
+		"idle_timeout_seconds": 0,
+		"close_wait_seconds": 0,
+		"graceful_restart": false,
+		"enable_async_logger": false
 	}
 }

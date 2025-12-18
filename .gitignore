@@ -14,9 +14,12 @@ coverage.html
 
 # Dependency directories
 vendor/
+logs/
 
 # Go workspace file
 go.work
+go.work.sum
+internal/pkgs
 
 # IDE
 .idea/

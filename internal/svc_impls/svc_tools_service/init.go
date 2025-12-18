@@ -3,15 +3,16 @@
 package svc_tools_service
 
 import (
-	"go-template/dao"
-	"go-template/internal/database"
-	"go-template/service"
+	"{{.ProjectName}}/dao"
+	"{{.ProjectName}}/internal/database"
+	"{{.ProjectName}}/service"
 )
 
 var _ service.ToolsService = &Service{}
 
+// @mount(operDao,db)
 // @autowire(service.ToolsService,set=service)
 type Service struct {
-	SQL              database.Mysql
-	OperationLogsDao dao.OperationLogsDao
+	OperationLogsDao dao.OperationLogsDao `json:"operation_logs_dao"`
+	Db               database.DB          `json:"db"`
 }

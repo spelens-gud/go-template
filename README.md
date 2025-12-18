@@ -19,7 +19,7 @@ go install golang.org/x/tools/cmd/gonew@latest
 ```
 
 ```bash
-gonew git.bestfulfill.tech/oms/go-template
+gonew git.bestfulfill.tech/oms/{{.ProjectName}}
 ```
 
 ### 安装 pre-commit

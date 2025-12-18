@@ -12,18 +12,6 @@ else
         AUTHOR=$(git config user.name 2>/dev/null || echo "Unknown")
         if cobra-cli init --author "$AUTHOR" --license apache &> /dev/null || cobra-cli init &> /dev/null; then
             echo "✓ 初始化 Cobra CLI"
-
-            if [ -f "cmd/root.go" ]; then
-                MODULE_NAME=$(grep "^module " go.mod | awk '{print $2}' 2>/dev/null || echo "$PROJECT_NAME")
-                CMD_NAME=$(basename "$MODULE_NAME" 2>/dev/null || echo "$PROJECT_NAME")
-
-                cat > cmd/root.go << 'ROOT_EOF'
-
-ROOT_EOF
-                sed -i.bak "s|\$PROJECT_NAME|$MODULE_NAME|g" cmd/root.go
-                sed -i.bak "s|\$CMD_NAME|$CMD_NAME|g" cmd/root.go
-                rm -f cmd/root.go.bak
-            fi
         fi
 
         cobra-cli add server &> /dev/null && echo "✓ 添加 server 命令"

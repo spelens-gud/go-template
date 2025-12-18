@@ -1,11 +1,10 @@
 package apis
 
-import (
-	service "go-template/service"
-)
+import "{{.ProjectName}}/service"
 
 // @autowire(set=service)
 // @mount(service)
+// @api_server()
 type Services struct {
-	ToolsService service.ToolsService
+	ToolsService service.ToolsService `json:"tools_service"`
 }

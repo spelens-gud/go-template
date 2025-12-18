@@ -6,8 +6,8 @@
 package internal
 
 import (
-	"go-template/dao"
-	"go-template/internal/dao_impls/dao_operation_logs_dao"
+	"{{.ProjectName}}/dao"
+	"{{.ProjectName}}/internal/dao_impls/dao_operation_logs_dao"
 
 	"github.com/google/wire"
 )

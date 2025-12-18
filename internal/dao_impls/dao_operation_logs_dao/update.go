@@ -5,7 +5,7 @@ import (
 
 	"gorm.io/gorm"
 
-	"go-template/internal/table"
+	"{{.ProjectName}}/internal/table"
 )
 
 func (d *DaoImpl) Update(ctx context.Context, db *gorm.DB, logisticInfo *table.OperationLogs) error {

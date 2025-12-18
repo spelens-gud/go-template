@@ -1,8 +1,8 @@
 package database
 
 import (
-	"git.bestfulfill.tech/devops/go-core/implements/redisx"
-	"git.bestfulfill.tech/devops/go-core/interfaces/iredis"
+	"github.com/spelens-gud/Verktyg/implements/redisx"
+	"github.com/spelens-gud/Verktyg/interfaces/iredis"
 )
 
 type (

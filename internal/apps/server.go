@@ -3,8 +3,8 @@ package apps
 import (
 	"github.com/gin-gonic/gin"
 
-	"git.bestfulfill.tech/devops/go-core/kits/kserver"
-	"git.bestfulfill.tech/devops/go-core/kits/kserver/gin_middles"
+	"github.com/spelens-gud/Verktyg/kits/kserver"
+	"github.com/spelens-gud/Verktyg/kits/kserver/gin_middles"
 )
 
 // @autowire(set=init)
@@ -16,6 +16,7 @@ func InitGinServer() (eg *gin.Engine) {
 }
 
 // @autowire(set=init)
+// @base_server()
 type BaseServer struct {
 	Runtime Runtime
 	Engine  *gin.Engine

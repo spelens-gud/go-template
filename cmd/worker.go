@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	"go-template/cmd/internal"
-	"go-template/config"
-	"go-template/internal/apps"
+	"{{.ProjectName}}/cmd/internal"
+	"{{.ProjectName}}/config"
+	"{{.ProjectName}}/internal/apps"
 
 	"github.com/spf13/cobra"
 )

@@ -1,0 +1,21 @@
+{
+  "server_config": {
+    "addr": ":6066",
+    "read_timeout_seconds": 0,
+    "read_header_timeout_seconds": 0,
+    "write_timeout_seconds": 0,
+    "idle_timeout_seconds": 0,
+    "close_wait_seconds": 0,
+    "graceful_restart": false,
+    "enable_async_logger": false
+  },
+  "db_config": {
+    "type": "postgres",
+    "ssl_mode": "disable",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "db": "mydb",
+    "user": "postgres",
+    "password": "123456"
+  }
+}

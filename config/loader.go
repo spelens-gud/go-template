@@ -1,11 +1,9 @@
 package config
 
 import (
-	"git.bestfulfill.tech/devops/go-core/implements/cfgloader"
+	"github.com/spelens-gud/Verktyg/implements/cfgloader"
 )
 
-var loader = cfgloader.NewFileLoader("./config/config.json")
-
-//var loader = cfgloader.NewConfigLoaderFromEnv()
+var loader = cfgloader.NewConfigLoaderFromEnv()
 
 func LoadConfig() (c Config) { loader.MustLoad(&c); return }

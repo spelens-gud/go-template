@@ -7,38 +7,24 @@
 package internal
 
 import (
-	"go-template/apis"
-	"go-template/config"
-	"go-template/internal/apps"
-	"go-template/internal/apps/server"
-	"go-template/internal/apps/worker"
-	"go-template/internal/dao_impls/dao_operation_logs_dao"
-	"go-template/internal/database"
-	"go-template/internal/svc_impls/svc_tools_service"
+	"{{.ProjectName}}/apis"
+	"{{.ProjectName}}/config"
+	"{{.ProjectName}}/internal/apps"
+	"{{.ProjectName}}/internal/apps/server"
+	"{{.ProjectName}}/internal/apps/worker"
+	"{{.ProjectName}}/internal/dao_impls/dao_operation_logs_dao"
+	"{{.ProjectName}}/internal/database"
+	"{{.ProjectName}}/internal/svc_impls/svc_tools_service"
 )
 
 // Injectors from wire.gen.go:
 
 func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
-	mysqlConfig := c0.MysqlConfig
-	mysql, cleanup, err := database.InitSql(mysqlConfig)
-	if err != nil {
-		return nil, nil, err
-	}
-	daoImpl := &dao_operation_logs_dao.DaoImpl{}
-	service := &svc_tools_service.Service{
-		SQL:              mysql,
-		OperationLogsDao: daoImpl,
-	}
-	services := apis.Services{
-		ToolsService: service,
-	}
 	gatewayConfig := c0.MetricsGatewayConfig
-	gatewayDaemon, cleanup2 := apps.InitMetricsPush(gatewayConfig)
+	gatewayDaemon, cleanup := apps.InitMetricsPush(gatewayConfig)
 	jaegerConfig := c0.TracerConfig
-	tracer, cleanup3, err := apps.InitTracer(jaegerConfig)
+	tracer, cleanup2, err := apps.InitTracer(jaegerConfig)
 	if err != nil {
-		cleanup2()
 		cleanup()
 		return nil, nil, err
 	}
@@ -51,11 +37,26 @@ func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
 		Runtime: runtime,
 		Engine:  engine,
 	}
-	kserverConfig := c0.ServerConfig
+	serverConfig := c0.ServerConfig
+	daoImpl := &dao_operation_logs_dao.DaoImpl{}
+	dbConfig := c0.DbConfig
+	db, cleanup3, err := database.InitSql(dbConfig)
+	if err != nil {
+		cleanup2()
+		cleanup()
+		return nil, nil, err
+	}
+	service := &svc_tools_service.Service{
+		OperationLogsDao: daoImpl,
+		Db:               db,
+	}
+	services := apis.Services{
+		ToolsService: service,
+	}
 	serverServer := &server.Server{
-		Services:   services,
-		BaseServer: baseServer,
-		Config:     kserverConfig,
+		BaseServer:   baseServer,
+		ServerConfig: serverConfig,
+		Services:     services,
 	}
 	return serverServer, func() {
 		cleanup3()
@@ -65,15 +66,15 @@ func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
 }
 
 func InitializeWorker(c0 *config.Config) (*worker.Worker, func(), error) {
-	mysqlConfig := c0.MysqlConfig
-	mysql, cleanup, err := database.InitSql(mysqlConfig)
+	daoImpl := &dao_operation_logs_dao.DaoImpl{}
+	dbConfig := c0.DbConfig
+	db, cleanup, err := database.InitSql(dbConfig)
 	if err != nil {
 		return nil, nil, err
 	}
-	daoImpl := &dao_operation_logs_dao.DaoImpl{}
 	service := &svc_tools_service.Service{
-		SQL:              mysql,
 		OperationLogsDao: daoImpl,
+		Db:               db,
 	}
 	services := apis.Services{
 		ToolsService: service,

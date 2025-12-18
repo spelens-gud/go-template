@@ -1,0 +1,36 @@
+variables:
+  Author:
+    description: "项目作者名称"
+    default: "You"
+    required: false
+    type: "string"
+  Version:
+    description: "项目版本号"
+    default: "1.0.0"
+    required: false
+    type: "string"
+  License:
+    description: "项目许可证类型（如 MIT、Apache-2.0、GPL-3.0）"
+    default: "MIT"
+    required: false
+    type: "string"
+  Description:
+    description: "项目简短描述"
+    default: ""
+    required: false
+    type: "string"
+  GoVersion:
+    description: "项目使用的 Go 版本"
+    default: "1.25"
+    required: false
+    type: "string"
+  Email:
+    description: "作者邮箱地址"
+    default: ""
+    required: false
+    type: "string"
+  Repository:
+    description: "项目 Git 仓库地址"
+    default: {{.ProjectName}}
+    required: true
+    type: "string"

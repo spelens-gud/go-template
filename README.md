@@ -1,81 +1,98 @@
-# {{.ProjectName}}
+PROJECT_NAME := $(notdir {{.ProjectName}})
+VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
+BUILD_TIME := $(shell date -u '+%Y-%m-%d_%H:%M:%S')
+GIT_COMMIT := $(shell git rev-parse HEAD 2>/dev/null || echo "unknown")
 
-## 环境设置
+# 构建标志
+LDFLAGS := -ldflags "-X '{{.ProjectName}}/internal/version.Version=$(VERSION)' \
+                      -X '{{.ProjectName}}/internal/version.GitCommit=$(GIT_COMMIT)' \
+                      -X '{{.ProjectName}}/internal/version.BuildTime=$(BUILD_TIME)'"
 
-### 安装 Go
+.PHONY: all build test clean install lint fmt help vet check typos
 
-登录 Go 官网下载go二进制包`https://go.dev/doc/install`
+# 默认目标
+all: test build
 
-```bash
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.25.3.linux-amd64.tar.gz
-```
+# 构建项目
+build:
+	@echo "Building $(PROJECT_NAME)..."
+	go build $(LDFLAGS) -o $(PROJECT_NAME) .
+	@echo "Build complete: ./$(PROJECT_NAME)"
 
-### 安装 gogen
+# 运行测试
+test:
+	@echo "Running tests..."
+	go test -v -race -cover ./...
 
-gogen 是一个用于生成项目模板的工具。它可以使用已有的 github repo 作为模版生成新的项目。
+# 运行测试并生成覆盖率报告
+test-coverage:
+	@echo "Running tests with coverage..."
+	go test -v -race -coverprofile=coverage.out ./...
+	go tool cover -html=coverage.out -o coverage.html
+	@echo "Coverage report generated: coverage.html"
 
-```bash
-go install golang.org/x/tools/cmd/gonew@latest
-```
+# 清理构建产物
+clean:
+	@echo "Cleaning..."
+	rm -f $(PROJECT_NAME)
+	rm -f coverage.out coverage.html
+	go clean
+	@echo "Clean complete"
 
-```bash
-gonew git.bestfulfill.tech/oms/go-template
-```
+# 安装到 GOPATH/bin
+install:
+	@echo "Installing $(PROJECT_NAME)..."
+	go install $(LDFLAGS) .
+	@echo "Install complete"
 
-### 安装 pre-commit
+# 代码检查
+lint:
+	@echo "Running linter..."
+	golangci-lint run ./...
 
-pre-commit 是一个代码检查工具，可以在提交代码前进行代码检查。
+typos:
+	@echo "Check typos code..."
+	typos
 
-```bash
-pipx install pre-commit
-```
+# 格式化代码
+fmt:
+	@echo "Formatting code..."
+	goimports -l -d -w .
+	@echo "Format complete"
 
-安装成功后运行 `pre-commit install` 即可。
+# 静态分析代码
+vet:
+	@echo "Static Analysis code ..."
+	go vet ./...
+	@echo "Static Analysis complete"
 
-### 安装 goimports
+# 漏洞检测分析
+check:
+	@echo "Vulnerability Detection code ..."
+	govulncheck ./...
+	@echo "Vulnerability Detection complete"
 
-goimports 是一个用于格式化 Go 代码的工具。
+# 运行项目
+run:
+	@echo "Running $(PROJECT_NAME)..."
+	go run $(LDFLAGS) . $(ARGS)
 
-```bash
-go install golang.org/x/tools/cmd/goimports@latest
-```
-
-### 安装 golangci-lint
-
-golangci-lint 是一个用于检查 Go 代码的工具。
-
-```bash
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-```
-
-最新版支持go1.25需要golangci-lint@2.5
-
-### 安装 govulncheck
-
-govulncheck 是一个用于检查 Go 代码漏洞的工具。
-
-```bash
-go install golang.org/x/vuln/cmd/govulncheck@latest
-```
-
-### 安装 typos
-
-typos 是一个拼写检查工具。
-
-```bash
-cargo install typos-cli
-```
-
-### 安装 git cliff
-
-git cliff 是一个生成 changelog 的工具。
-
-```bash
-cargo install git-cliff
-```
-
-读取cliff.toml 生成更变日志
-
-```bash
-git cliff --output CHANGELOG.md
-```
+# 显示帮助信息
+help:
+	@echo "Available targets:"
+	@echo "  all            - Run tests and build (default)"
+	@echo "  build          - Build the project"
+	@echo "  test           - Run tests"
+	@echo "  test-coverage  - Run tests with coverage report"
+	@echo "  clean          - Clean build artifacts"
+	@echo "  install        - Install to GOPATH/bin"
+	@echo "  lint           - Run linter"
+	@echo "  fmt            - Format code"
+	@echo "  run            - Run the project (use ARGS='...' for arguments)"
+	@echo "  help           - Show this help message"
+	@echo ""
+	@echo "Examples:"
+	@echo "  make build"
+	@echo "  make test"
+	@echo "  make run ARGS='db2struct users'"
+	@echo "  make install"

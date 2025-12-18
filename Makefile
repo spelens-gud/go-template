@@ -1,4 +1,4 @@
-PROJECT_NAME := {{.ProjectName}}
+PROJECT_NAME := $(notdir {{.ProjectName}})
 VERSION := $(shell git describe --tags --always --dirty 2>/dev/null || echo "dev")
 BUILD_TIME := $(shell date -u '+%Y-%m-%d_%H:%M:%S')
 GIT_COMMIT := $(shell git rev-parse HEAD 2>/dev/null || echo "unknown")

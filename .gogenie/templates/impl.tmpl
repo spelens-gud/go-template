@@ -11,7 +11,11 @@ import (
 
 var _ {{ .InterfaceImportAlias }}.{{ .InterfaceName }} = &{{ .ImplStructName }}{}
 
+{{- if .ImplStructFields }}
+// @autowire({{ .InterfaceImportAlias }}.{{ .InterfaceName }},set={{ .SetName }},skip={{ .UnimplementedName }})
+{{- else }}
 // @autowire({{ .InterfaceImportAlias }}.{{ .InterfaceName }},set={{ .SetName }})
+{{- end }}
 type {{ .ImplStructName }} struct {
 {{- if .ImplStructFields }}
  {{ .ImplStructFields }}

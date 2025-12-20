@@ -10,7 +10,6 @@ import (
 
 var _ service.ToolsService = &Service{}
 
-// @mount(operDao,db)
 // @autowire(service.ToolsService,set=service)
 type Service struct {
 	OperationLogsDao dao.OperationLogsDao `json:"operation_logs_dao"`

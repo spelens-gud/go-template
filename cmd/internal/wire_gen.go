@@ -10,14 +10,50 @@ import (
 	"{{.ProjectName}}/apis"
 	"{{.ProjectName}}/config"
 	"{{.ProjectName}}/internal/apps"
+	"{{.ProjectName}}/internal/apps/grpc"
 	"{{.ProjectName}}/internal/apps/server"
 	"{{.ProjectName}}/internal/apps/worker"
 	"{{.ProjectName}}/internal/dao_impls/dao_operation_logs_dao"
 	"{{.ProjectName}}/internal/database"
+	"{{.ProjectName}}/internal/grpc_impls/grpc_user_server"
 	"{{.ProjectName}}/internal/svc_impls/svc_tools_service"
 )
 
 // Injectors from wire.gen.go:
+
+func InitializeGrpcServer(c0 *config.Config) (*grpc.GrpcServer, func(), error) {
+	gatewayConfig := c0.MetricsGatewayConfig
+	gatewayDaemon, cleanup := apps.InitMetricsPush(gatewayConfig)
+	jaegerConfig := c0.TracerConfig
+	tracer, cleanup2, err := apps.InitTracer(jaegerConfig)
+	if err != nil {
+		cleanup()
+		return nil, nil, err
+	}
+	runtime := apps.Runtime{
+		MetricsPushDaemon: gatewayDaemon,
+		Tracer:            tracer,
+	}
+	server := apps.InitGrpcServer()
+	baseGrpcServer := apps.BaseGrpcServer{
+		Runtime:    runtime,
+		GrpcServer: server,
+	}
+	kgrpcConfig := c0.GrpcServerConfig
+	grpcImpl := &grpc_user_server.GrpcImpl{}
+	grpcServices := apis.GrpcServices{
+		UserServer: grpcImpl,
+	}
+	grpcServer := &grpc.GrpcServer{
+		BaseGrpcServer:   baseGrpcServer,
+		GrpcServerConfig: kgrpcConfig,
+		Services:         grpcServices,
+	}
+	return grpcServer, func() {
+		cleanup2()
+		cleanup()
+	}, nil
+}
 
 func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
 	gatewayConfig := c0.MetricsGatewayConfig
@@ -37,7 +73,13 @@ func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
 		Runtime: runtime,
 		Engine:  engine,
 	}
-	serverConfig := c0.ServerConfig
+	grpcServer := apps.InitGrpcServer()
+	baseGrpcServer := apps.BaseGrpcServer{
+		Runtime:    runtime,
+		GrpcServer: grpcServer,
+	}
+	kserverConfig := c0.ServerConfig
+	kgrpcConfig := c0.GrpcServerConfig
 	daoImpl := &dao_operation_logs_dao.DaoImpl{}
 	dbConfig := c0.DbConfig
 	db, cleanup3, err := database.InitSql(dbConfig)
@@ -53,10 +95,17 @@ func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
 	services := apis.Services{
 		ToolsService: service,
 	}
+	grpcImpl := &grpc_user_server.GrpcImpl{}
+	grpcServices := apis.GrpcServices{
+		UserServer: grpcImpl,
+	}
 	serverServer := &server.Server{
-		BaseServer:   baseServer,
-		ServerConfig: serverConfig,
-		Services:     services,
+		BaseServer:       baseServer,
+		BaseGrpcServer:   baseGrpcServer,
+		ServerConfig:     kserverConfig,
+		GrpcServerConfig: kgrpcConfig,
+		Services:         services,
+		GrpcServices:     grpcServices,
 	}
 	return serverServer, func() {
 		cleanup3()

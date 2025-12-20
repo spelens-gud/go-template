@@ -6,19 +6,23 @@
 package internal
 
 import (
+	"github.com/google/wire"
 	"{{.ProjectName}}/internal/apps"
+	"{{.ProjectName}}/internal/apps/grpc"
 	"{{.ProjectName}}/internal/apps/server"
 	"{{.ProjectName}}/internal/apps/worker"
-
-	"github.com/google/wire"
 )
 
 var InitSet = wire.NewSet(
+	wire.Struct(new(apps.BaseGrpcServer), "*"),
+
 	wire.Struct(new(apps.BaseServer), "*"),
 
 	wire.Struct(new(apps.BaseWorker), "*"),
 
 	apps.InitGinServer,
+
+	apps.InitGrpcServer,
 
 	apps.InitMetricsPush,
 
@@ -27,6 +31,8 @@ var InitSet = wire.NewSet(
 	apps.InitWorkerManager,
 
 	wire.Struct(new(apps.Runtime), "*"),
+
+	wire.Struct(new(grpc.GrpcServer), "*"),
 
 	wire.Struct(new(server.Server), "*"),
 

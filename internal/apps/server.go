@@ -16,12 +16,12 @@ func InitGinServer() (eg *gin.Engine) {
 }
 
 // @autowire(set=init)
-// @base_server()
 type BaseServer struct {
 	Runtime Runtime
 	Engine  *gin.Engine
 }
 
+// @config(cfg=ServerConfig)
 func (server *BaseServer) Start(register func(router gin.IRouter), cfg kserver.Config) {
 	server.Runtime.Init()
 	register(server.Engine)

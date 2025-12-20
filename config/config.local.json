@@ -1,4 +1,13 @@
 {
+  "grpc_server_config": {
+    "addr": ":50051",
+    "max_recv_msg_size": 4194304,
+    "max_send_msg_size": 4194304,
+    "connection_timeout": 120,
+    "close_wait_seconds": 10,
+    "enable_reflection": true,
+    "base_context": null
+  },
   "server_config": {
     "addr": ":6066",
     "read_timeout_seconds": 0,

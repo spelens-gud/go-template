@@ -6,11 +6,10 @@
 package internal
 
 import (
+	"github.com/google/wire"
 	"{{.ProjectName}}/apis"
 	"{{.ProjectName}}/internal/svc_impls/svc_tools_service"
 	"{{.ProjectName}}/service"
-
-	"github.com/google/wire"
 )
 
 var ServiceSet = wire.NewSet(

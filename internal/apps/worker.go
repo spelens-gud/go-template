@@ -12,7 +12,6 @@ func InitWorkerManager() iworker.WorkerManager {
 }
 
 // @autowire(set=init)
-// @base_worker()
 type BaseWorker struct {
 	Runtime       Runtime
 	WorkerManager iworker.WorkerManager

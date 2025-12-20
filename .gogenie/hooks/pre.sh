@@ -6,6 +6,8 @@ TOOLS=(
     "golang.org/x/tools/cmd/goimports@latest"
     "github.com/golangci/golangci-lint/cmd/golangci-lint@latest"
     "golang.org/x/vuln/cmd/govulncheck@latest"
+    "google.golang.org/protobuf/cmd/protoc-gen-go@latest"
+    "google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest"
 )
 
 if ! command -v go &> /dev/null; then
@@ -89,6 +91,9 @@ install_tool() {
                 pre-commit)
                     brew install pre-commit &> /dev/null || pip3 install pre-commit &> /dev/null
                     ;;
+                protoc)
+                    brew install protoc &> /dev/null || true
+                    ;;
                 typos-cli)
                     brew install typos &> /dev/null || (command -v cargo &> /dev/null && cargo install typos-cli &> /dev/null)
                     ;;
@@ -107,6 +112,9 @@ install_tool() {
                 pre-commit)
                     pip3 install --user pre-commit &> /dev/null || ($sudo_cmd apt-get update &> /dev/null && $sudo_cmd apt-get install -y pre-commit &> /dev/null) || pip3 install pre-commit &> /dev/null
                     ;;
+                protoc)
+                    $sudo_cmd apt-get update &> /dev/null && true
+                    ;;
                 typos-cli)
                     command -v cargo &> /dev/null && cargo install typos-cli &> /dev/null || return 1
                     ;;
@@ -122,6 +130,13 @@ install_tool() {
             case "$tool_name" in
                 pre-commit)
                     pip3 install --user pre-commit &> /dev/null || ([[ "$os_type" == "rhel" ]] && $sudo_cmd yum install -y pre-commit &> /dev/null || $sudo_cmd dnf install -y pre-commit &> /dev/null) || pip3 install pre-commit &> /dev/null
+                    ;;
+                protoc)
+                    if [[ "$os_type" == "rhel" ]]; then
+                        $sudo_cmd yum install -y protoc &> /dev/null
+                    else
+                        $sudo_cmd dnf install -y protoc &> /dev/null
+                    fi
                     ;;
                 typos-cli)
                     command -v cargo &> /dev/null && cargo install typos-cli &> /dev/null || return 1
@@ -142,6 +157,9 @@ install_tool() {
             case "$tool_name" in
                 pre-commit)
                     pip3 install --user pre-commit &> /dev/null || $sudo_cmd pacman -S --noconfirm pre-commit &> /dev/null || pip3 install pre-commit &> /dev/null
+                    ;;
+                protoc)
+                    $sudo_cmd pacman -S --noconfirm protoc &> /dev/null
                     ;;
                 typos-cli)
                     $sudo_cmd pacman -S --noconfirm typos &> /dev/null || (command -v cargo &> /dev/null && cargo install typos-cli &> /dev/null) || true
@@ -171,7 +189,7 @@ install_tool() {
 }
 
 OS_TYPE=$(detect_os)
-SYSTEM_TOOLS=("pre-commit" "typos-cli" "git-cliff" "make")
+SYSTEM_TOOLS=("pre-commit" "typos-cli" "git-cliff" "make" "protoc")
 
 for tool in "${SYSTEM_TOOLS[@]}"; do
     install_tool "$tool" "$OS_TYPE" &> /dev/null

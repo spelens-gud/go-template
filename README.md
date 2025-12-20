@@ -79,3 +79,9 @@ cargo install git-cliff
 ```bash
 git cliff --output CHANGELOG.md
 ```
+
+### 安装 grpc 相关
+```bash
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+```

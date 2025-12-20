@@ -6,12 +6,16 @@
 package internal
 
 import (
+	"github.com/google/wire"
 	"{{.ProjectName}}/config"
+	"{{.ProjectName}}/internal/apps/grpc"
 	"{{.ProjectName}}/internal/apps/server"
 	"{{.ProjectName}}/internal/apps/worker"
-
-	"github.com/google/wire"
 )
+
+func InitializeGrpcServer(c0 *config.Config) (*grpc.GrpcServer, func(), error) {
+	panic(wire.Build(Sets))
+}
 
 func InitializeServer(c0 *config.Config) (*server.Server, func(), error) {
 	panic(wire.Build(Sets))

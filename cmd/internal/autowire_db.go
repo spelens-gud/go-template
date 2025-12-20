@@ -6,9 +6,8 @@
 package internal
 
 import (
-	"{{.ProjectName}}/internal/database"
-
 	"github.com/google/wire"
+	"{{.ProjectName}}/internal/database"
 )
 
 var DbSet = wire.NewSet(

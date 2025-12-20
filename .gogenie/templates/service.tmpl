@@ -2,43 +2,43 @@
 package service
 
 import (
-    "context"
+ "context"
 )
 
 // {{ .ModelDesc }}服务接口定义
 // @service({{ .PackageName }})
 type {{ .ModelName }}Service interface {
-    // 获取{{ .ModelDesc }}列表
-    // @http.get("/list")
-    Get{{ .ModelName }}List(ctx context.Context, param Query{{ .ModelName }}) (list {{ .ModelName }}List, err error)
-    // 编辑{{ .ModelDesc }}
-    // @http.post("/update")
-    Update{{ .ModelName }}(ctx context.Context, param Form{{ .ModelName }}) (err error)
-    // 删除{{ .ModelDesc }}
-    // @http.delete("/delete")
-    Delete{{ .ModelName }}(ctx context.Context, param Query{{ .ModelName }}) (err error)
-    // 根据ID获取{{ .ModelDesc }}
-    // @http.get("/detail")
-    Get{{ .ModelName }}ByID(ctx context.Context, id int) (ret {{ .ModelName }}, err error)
+ // 获取{{ .ModelDesc }}列表
+ // @http.get("/list")
+ Get{{ .ModelName }}List(ctx context.Context, param Query{{ .ModelName }}) (list {{ .ModelName }}List, err error)
+ // 编辑{{ .ModelDesc }}
+ // @http.post("/update")
+ Update{{ .ModelName }}(ctx context.Context, param Form{{ .ModelName }}) (err error)
+ // 删除{{ .ModelDesc }}
+ // @http.delete("/delete")
+ Delete{{ .ModelName }}(ctx context.Context, param Query{{ .ModelName }}) (err error)
+ // 根据ID获取{{ .ModelDesc }}
+ // @http.get("/detail")
+ Get{{ .ModelName }}ByID(ctx context.Context, id int) (ret {{ .ModelName }}, err error)
 }
 
 // {{ .ModelDesc }}表单定义
 type Form{{ .ModelName }} struct { {{ range $Field := .Fields}}
-        {{ $Field.Name }} {{ $Field.Type }} // {{ $Field.Comment}}   {{ end }}
+  {{ $Field.Name }} {{ $Field.Type }} // {{ $Field.Comment}}   {{ end }}
 }
 
 // {{ .ModelDesc }}查询定义
 type Query{{ .ModelName }} struct {
-    Id int
+ Id int
 }
 
 // {{ .ModelDesc }}列表定义
 type {{ .ModelName }} struct {
-    Form{{ .ModelName }}
+ Form{{ .ModelName }}
 }
 
 type {{ .ModelName }}List []{{ .ModelName }}
 
 func (l {{ .ModelName }}List) ViewItem() interface{} {
-    return new({{ .ModelName }})
+ return new({{ .ModelName }})
 }

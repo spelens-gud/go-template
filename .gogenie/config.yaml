@@ -1,6 +1,6 @@
 global:
     project:
-        name: {{.ProjectName}}
+        name: go-template
         module: {{.ProjectName}}
         version: 1.0.0
         author: ""
@@ -25,13 +25,14 @@ commands:
         package: internal
         init_types:
             - '*'
-        enable_cache: true
+        enable_cache: false
         parallel: 0
         exclude_dirs:
             - vendor
             - testdata
             - .git
             - node_modules
+            - internal/pkgs/Verktyg
         include_only: []
         watch: false
         watch_ignore:
@@ -104,11 +105,25 @@ commands:
               structName: Service
               pkgPrefix: svc
               template: impl
+              is_grpc_service: false
+              grpc_suffix: ""
             - service: dao
               output_path: ./internal/dao_impls
               structName: DaoImpl
               pkgPrefix: dao
               template: impl
+              is_grpc_service: false
+              grpc_suffix: ""
+            - service: grpc
+              output_path: ./internal/grpc_impls
+              structName: GrpcImpl
+              pkgPrefix: grpc
+              template: impl
+              is_grpc_service: true
+              grpc_suffix: Server
+        proto_scope: ./
+        proto_paths:
+            - proto
     mount:
         enable: true
         scope: ./

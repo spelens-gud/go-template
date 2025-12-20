@@ -31,9 +31,9 @@ func (this {{ $type }}{{ .MapType }}Map) ForEach(f func(key {{ .MapBType }},t *{
 	if len(this) == 0 {
 		return
 	}
-    for k := range this {
-        f(k,this[k])
-    }
+ for k := range this {
+  f(k,this[k])
+ }
 }
 
 

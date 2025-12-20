@@ -13,6 +13,7 @@ var Sets = wire.NewSet(
 	ConfigSet,
 	DaoSet,
 	DbSet,
+	GrpcSet,
 	InitSet,
 	ServiceSet,
 )

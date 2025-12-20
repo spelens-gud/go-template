@@ -10,7 +10,6 @@ import (
 )
 
 // @autowire.init()
-// @mount(api_server,base_worker)
 type Worker struct {
 	Services   apis.Services   `json:"services"`
 	BaseWorker apps.BaseWorker `json:"base_worker"`

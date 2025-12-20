@@ -6,10 +6,9 @@
 package internal
 
 import (
+	"github.com/google/wire"
 	"{{.ProjectName}}/dao"
 	"{{.ProjectName}}/internal/dao_impls/dao_operation_logs_dao"
-
-	"github.com/google/wire"
 )
 
 var DaoSet = wire.NewSet(

@@ -1,10 +1,9 @@
 package apis
 
 import (
-	"{{.ProjectName}}/apis/tools"
-
 	svrlessgin "github.com/Just-maple/serverless-gin"
 	"github.com/gin-gonic/gin"
+	"{{.ProjectName}}/apis/tools"
 )
 
 const groupPrefix = "/api/v1"

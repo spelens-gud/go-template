@@ -8,7 +8,7 @@ import (
 // @db()
 type DB isql.Gorm2SQL // gorm的db句柄
 
-// @db_config()
+// @config()
 type DBConfig isql.SQLConfig // 数据库配置
 
 // @autowire(set=db)

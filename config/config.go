@@ -1,17 +1,20 @@
 package config
 
 import (
-	"{{.ProjectName}}/internal/database"
-
 	"github.com/spelens-gud/Verktyg/implements/otrace"
 	"github.com/spelens-gud/Verktyg/implements/promgateway"
+	"github.com/spelens-gud/Verktyg/kits/kgrpc"
+	"github.com/spelens-gud/Verktyg/kits/kserver"
+
+	"{{.ProjectName}}/internal/database"
 )
 
 // @autowire.config()
-// @mount(db_config,server_config,config)
+// @mount(config)
 type Config struct {
-	DbConfig             database.DBConfig         `json:"db_config"`
+	GrpcServerConfig     kgrpc.Config              `json:"grpc_server_config"`
+	ServerConfig         kserver.Config            `json:"server_config"`
 	MetricsGatewayConfig promgateway.GatewayConfig `json:"metrics_gateway_config"`
 	TracerConfig         otrace.JaegerConfig       `json:"tracer_config"`
-	ServerConfig         database.ServerConfig     `json:"server_config"`
+	DbConfig             database.DBConfig         `json:"db_config"`
 }

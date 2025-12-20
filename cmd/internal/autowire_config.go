@@ -6,11 +6,10 @@
 package internal
 
 import (
-	"{{.ProjectName}}/config"
-
 	"github.com/google/wire"
+	"{{.ProjectName}}/config"
 )
 
 var ConfigSet = wire.NewSet(
-	wire.FieldsOf(new(*config.Config), "DbConfig", "MetricsGatewayConfig", "ServerConfig", "TracerConfig"),
+	wire.FieldsOf(new(*config.Config), "DbConfig", "GrpcServerConfig", "MetricsGatewayConfig", "ServerConfig", "TracerConfig"),
 )

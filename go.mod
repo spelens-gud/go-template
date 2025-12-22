@@ -12,7 +12,7 @@ require (
 	github.com/google/wire v0.7.0
 	github.com/labstack/gommon v0.4.2
 	github.com/robfig/cron/v3 v3.0.1
-	github.com/spelens-gud/Verktyg v0.0.4
+	github.com/spelens-gud/Verktyg v0.0.5
 	github.com/spf13/cobra v1.10.2
 	go.uber.org/automaxprocs v1.6.0
 	google.golang.org/grpc v1.64.1

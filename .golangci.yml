@@ -1,0 +1,141 @@
+version: "2"
+
+run:
+  timeout: 5m
+  tests: true
+
+output:
+  formats:
+    text:
+      path: stdout
+      colors: true
+
+linters:
+  default: none
+  enable:
+    - bodyclose
+    - dogsled
+    - dupl
+    - errcheck
+    - funlen
+    - gochecknoinits
+    - goconst
+    - gocritic
+    - gocyclo
+    - goprintffuncname
+    - gosec
+    - govet
+    - ineffassign
+    - lll
+    - misspell
+    - nakedret
+    - noctx
+    - nolintlint
+    - rowserrcheck
+    - staticcheck
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+
+  settings:
+    govet:
+      enable:
+        - shadow
+      settings:
+        printf:
+          funcs:
+            - (github.com/sirupsen/logrus.FieldLogger).Infof
+            - (github.com/sirupsen/logrus.FieldLogger).Warnf
+            - (github.com/sirupsen/logrus.FieldLogger).Errorf
+            - (github.com/sirupsen/logrus.FieldLogger).Fatalf
+
+    gocyclo:
+      min-complexity: 15
+
+    dupl:
+      threshold: 100
+
+    goconst:
+      min-len: 2
+      min-occurrences: 2
+
+    misspell:
+      locale: US
+
+    lll:
+      line-length: 140
+
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - experimental
+        - opinionated
+        - performance
+        - style
+      disabled-checks:
+        - dupImport
+        - ifElseChain
+        - octalLiteral
+        - whyNoLint
+        - wrapperFunc
+
+    funlen:
+      lines: 100
+      statements: 50
+
+    dogsled:
+      max-blank-identifiers: 2
+
+    whitespace:
+      multi-if: false
+      multi-func: false
+
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - path: _test\.go
+        linters:
+          - funlen
+          - gocyclo
+
+      - path: cmd/
+        linters:
+          - gochecknoinits
+
+      - linters:
+          - lll
+        source: "^//go:generate "
+
+      - text: 'declaration of "(err|ctx)" shadows declaration at'
+        linters:
+          - govet
+
+      - text: 'shadow: declaration of "err" shadows declaration'
+        linters:
+          - govet
+
+      - text: 'shadow: declaration of "ctx" shadows declaration'
+        linters:
+          - govet
+
+    paths:
+      - vendor
+      - bin
+      - dist
+      - ".*\\.pb\\.go$"
+      - ".*_generated\\.go$"
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/shuakami/mcp-ssh

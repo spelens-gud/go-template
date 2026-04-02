@@ -1,0 +1,787 @@
+{
+  "apis/controller.go": {
+    "mod_time": "2026-01-13T17:06:30.147081288+08:00",
+    "elements": null,
+    "hash": "c2ad54f8b7de6bb0b4063b8e5c4ee47e",
+    "size": 474
+  },
+  "apis/grpc.go": {
+    "mod_time": "2026-01-13T17:06:30.147712629+08:00",
+    "elements": [
+      {
+        "Name": "GrpcServices",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apis",
+        "PkgPath": "{{.ProjectName}}/apis",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "grpc"
+      }
+    ],
+    "hash": "72f29b1dfced446ad4b76cbbbcf3cfef",
+    "size": 311
+  },
+  "apis/root.go": {
+    "mod_time": "2026-01-13T17:06:30.819454192+08:00",
+    "elements": null,
+    "hash": "aed63ac0c5025a04d59c508f70e735d6",
+    "size": 632
+  },
+  "apis/services.go": {
+    "mod_time": "2026-01-13T17:09:45.216244902+08:00",
+    "elements": [
+      {
+        "Name": "Services",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apis",
+        "PkgPath": "{{.ProjectName}}/apis",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "service"
+      }
+    ],
+    "hash": "ba116caa0c53184fb3b089fc96967e66",
+    "size": 279
+  },
+  "apis/user/user.go": {
+    "mod_time": "2026-01-13T17:06:30.826755583+08:00",
+    "elements": null,
+    "hash": "3e1fa606e9021d5adb7770e98cdec6d7",
+    "size": 609
+  },
+  "apis/works.go": {
+    "mod_time": "2026-01-13T17:06:30.150774963+08:00",
+    "elements": [
+      {
+        "Name": "WorkServices",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apis",
+        "PkgPath": "{{.ProjectName}}/apis",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "work"
+      }
+    ],
+    "hash": "a98d9dbb57ad9d33902181ed4ee989a2",
+    "size": 802
+  },
+  "clients/client.go": {
+    "mod_time": "2026-01-13T17:06:30.152133523+08:00",
+    "elements": null,
+    "hash": "10d4e91d99c14938c5bc62b42ef8b18a",
+    "size": 736
+  },
+  "clients/tools/tools.go": {
+    "mod_time": "2026-01-13T17:06:30.153116537+08:00",
+    "elements": null,
+    "hash": "0792b6dfec667c0f3deee161002a9f34",
+    "size": 1059
+  },
+  "clients/user/user.go": {
+    "mod_time": "2026-01-13T17:06:30.154345345+08:00",
+    "elements": null,
+    "hash": "9b1691bdc580170c6753ec50a31d2e0e",
+    "size": 1999
+  },
+  "cmd/client.go": {
+    "mod_time": "2026-01-13T02:16:10.082420535+08:00",
+    "elements": null,
+    "hash": "2be42c4475024490a912010c70545041",
+    "size": 1081
+  },
+  "cmd/grpc/main.go": {
+    "mod_time": "2026-01-13T17:06:30.838032737+08:00",
+    "elements": null,
+    "hash": "0ebc3c933b265c1065d012aaf15411c8",
+    "size": 617
+  },
+  "cmd/root.go": {
+    "mod_time": "2026-01-13T00:52:14.111559033+08:00",
+    "elements": null,
+    "hash": "da0d98c71cd319168b2ec83ecd4ecf73",
+    "size": 1454
+  },
+  "cmd/server.go": {
+    "mod_time": "2026-01-13T01:26:36.297673525+08:00",
+    "elements": null,
+    "hash": "f6159b2dfa6fd5eafd0288b4d0ef322e",
+    "size": 1649
+  },
+  "cmd/server/main.go": {
+    "mod_time": "2026-01-13T17:06:30.923938781+08:00",
+    "elements": null,
+    "hash": "aa3285a4c7c83bbbd16211437618c195",
+    "size": 753
+  },
+  "cmd/worker/main.go": {
+    "mod_time": "2026-01-13T17:06:30.93069954+08:00",
+    "elements": null,
+    "hash": "6e35407f0f55294a478be1e1b9be9a49",
+    "size": 613
+  },
+  "config/config.go": {
+    "mod_time": "2026-01-13T17:09:45.595886529+08:00",
+    "elements": [
+      {
+        "Name": "Config",
+        "Constructor": "",
+        "Fields": [
+          "ClientConfig",
+          "DbConfig",
+          "GrpcClientConfig",
+          "GrpcServerConfig",
+          "MetricsGatewayConfig",
+          "RedisConfig",
+          "ServerConfig",
+          "TracerConfig"
+        ],
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "config",
+        "PkgPath": "{{.ProjectName}}/config",
+        "InitWire": false,
+        "ConfigWire": true,
+        "SetName": "config"
+      }
+    ],
+    "hash": "a98c62077c633b52d8e8b1fdf460222e",
+    "size": 1021
+  },
+  "config/loader.go": {
+    "mod_time": "2026-01-13T17:06:30.170362438+08:00",
+    "elements": null,
+    "hash": "aec2daf607b1319c065bcd63ca201d9a",
+    "size": 351
+  },
+  "config/type.go": {
+    "mod_time": "2025-12-27T02:45:52.452310964+08:00",
+    "elements": null,
+    "hash": "7b20cd8677bb5551b74bde3a471ba5e1",
+    "size": 292
+  },
+  "dao/dao.go": {
+    "mod_time": "2026-01-13T17:06:30.171985085+08:00",
+    "elements": null,
+    "hash": "dc84e79b55c2c102d43e71bc96558e6a",
+    "size": 213
+  },
+  "dao/user.go": {
+    "mod_time": "2026-01-13T17:06:30.940406339+08:00",
+    "elements": null,
+    "hash": "214a9656f920dceb7dcf9d9865c3990b",
+    "size": 1175
+  },
+  "internal/apps/app.go": {
+    "mod_time": "2026-01-13T17:06:30.180148279+08:00",
+    "elements": null,
+    "hash": "2acc63e3434620ddd43b8f99798c3aa7",
+    "size": 306
+  },
+  "internal/apps/grpc.go": {
+    "mod_time": "2026-01-13T17:06:30.182207599+08:00",
+    "elements": [
+      {
+        "Name": "InitGrpcServer",
+        "Constructor": "InitGrpcServer",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "BaseGrpcServer",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "a3069645518f47a875f4be4d14ea14bd",
+    "size": 1005
+  },
+  "internal/apps/grpc/grpc.go": {
+    "mod_time": "2026-01-13T17:06:30.948858204+08:00",
+    "elements": [
+      {
+        "Name": "GrpcServer",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "grpc",
+        "PkgPath": "{{.ProjectName}}/internal/apps/grpc",
+        "InitWire": true,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "e969a8c5800a27da6b16324edf764ae3",
+    "size": 819
+  },
+  "internal/apps/runtime.go": {
+    "mod_time": "2026-01-13T17:06:30.183590118+08:00",
+    "elements": [
+      {
+        "Name": "Runtime",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "InitMetricsPush",
+        "Constructor": "InitMetricsPush",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "InitTracer",
+        "Constructor": "InitTracer",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "427f342749ec9c0fb98b47ad5728d9f5",
+    "size": 1150
+  },
+  "internal/apps/server.go": {
+    "mod_time": "2026-01-13T17:06:30.185018138+08:00",
+    "elements": [
+      {
+        "Name": "InitGinServer",
+        "Constructor": "InitGinServer",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "BaseServer",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "7b65309f35edf832f858ee1313db3d6c",
+    "size": 759
+  },
+  "internal/apps/server/server.go": {
+    "mod_time": "2026-01-13T17:06:30.958199081+08:00",
+    "elements": [
+      {
+        "Name": "Server",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "server",
+        "PkgPath": "{{.ProjectName}}/internal/apps/server",
+        "InitWire": true,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "967cae3f1b93598eb522819173074e40",
+    "size": 1458
+  },
+  "internal/apps/worker.go": {
+    "mod_time": "2026-01-13T17:06:30.186430657+08:00",
+    "elements": [
+      {
+        "Name": "InitWorkerManager",
+        "Constructor": "InitWorkerManager",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      },
+      {
+        "Name": "BaseWorker",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "apps",
+        "PkgPath": "{{.ProjectName}}/internal/apps",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "fd4a60b4e8db3509273ec38cef44b4b6",
+    "size": 689
+  },
+  "internal/apps/worker/worker.go": {
+    "mod_time": "2026-01-13T17:06:30.966664196+08:00",
+    "elements": [
+      {
+        "Name": "Worker",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "worker",
+        "PkgPath": "{{.ProjectName}}/internal/apps/worker",
+        "InitWire": true,
+        "ConfigWire": false,
+        "SetName": "init"
+      }
+    ],
+    "hash": "50c6621555dfd50916f62311c38c8b47",
+    "size": 662
+  },
+  "internal/dao_impls/dao_user_dao/create.go": {
+    "mod_time": "2026-01-13T17:06:30.974368093+08:00",
+    "elements": null,
+    "hash": "d9f9a9d718bc8e129e4a9a5df4442aea",
+    "size": 220
+  },
+  "internal/dao_impls/dao_user_dao/delete.go": {
+    "mod_time": "2026-01-13T17:06:30.981737985+08:00",
+    "elements": null,
+    "hash": "8753d0d944d9afd06050b4f1f9d3d1a8",
+    "size": 242
+  },
+  "internal/dao_impls/dao_user_dao/get_by_email.go": {
+    "mod_time": "2026-01-13T17:06:30.989320088+08:00",
+    "elements": null,
+    "hash": "b3cc70eda776c74b8cb5f875ceb1441e",
+    "size": 340
+  },
+  "internal/dao_impls/dao_user_dao/get_by_id.go": {
+    "mod_time": "2026-01-13T17:06:30.99704936+08:00",
+    "elements": null,
+    "hash": "1b61e18c3efe210e45db81a31d158d79",
+    "size": 328
+  },
+  "internal/dao_impls/dao_user_dao/init.go": {
+    "mod_time": "2026-01-13T17:06:30.190412336+08:00",
+    "elements": [
+      {
+        "Name": "DaoImpl",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": [
+          "dao.UserDao"
+        ],
+        "Pkg": "dao_user_dao",
+        "PkgPath": "{{.ProjectName}}/internal/dao_impls/dao_user_dao",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "dao"
+      }
+    ],
+    "hash": "bf67b799445e5d35b8fd7502b59b053b",
+    "size": 241
+  },
+  "internal/dao_impls/dao_user_dao/list.go": {
+    "mod_time": "2026-01-13T17:06:31.004636213+08:00",
+    "elements": null,
+    "hash": "30a64526b7c3172b5e6a1a5068d56320",
+    "size": 1101
+  },
+  "internal/dao_impls/dao_user_dao/update.go": {
+    "mod_time": "2026-01-13T17:06:31.01186927+08:00",
+    "elements": null,
+    "hash": "3ea24739163d4a0e13a3610aff174cbe",
+    "size": 218
+  },
+  "internal/database/kafka.go": {
+    "mod_time": "2026-01-13T17:06:30.192181277+08:00",
+    "elements": [
+      {
+        "Name": "InitKafkaClient",
+        "Constructor": "InitKafkaClient",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "{{.ProjectName}}/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      },
+      {
+        "Name": "InitKafkaProducer",
+        "Constructor": "InitKafkaProducer",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "{{.ProjectName}}/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      }
+    ],
+    "hash": "604c60f4ae3d4277444b7475f017e9c8",
+    "size": 986
+  },
+  "internal/database/redis.go": {
+    "mod_time": "2026-01-13T17:06:30.192507239+08:00",
+    "elements": [
+      {
+        "Name": "InitRedis",
+        "Constructor": "InitRedis",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "{{.ProjectName}}/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      },
+      {
+        "Name": "InitRedisCluster",
+        "Constructor": "InitRedisCluster",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "{{.ProjectName}}/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      }
+    ],
+    "hash": "53fbb0c8affb2defb7c3dd24e5602ef9",
+    "size": 922
+  },
+  "internal/database/sql.go": {
+    "mod_time": "2026-01-13T17:06:30.192796952+08:00",
+    "elements": [
+      {
+        "Name": "InitSql",
+        "Constructor": "InitSql",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "database",
+        "PkgPath": "{{.ProjectName}}/internal/database",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "db"
+      }
+    ],
+    "hash": "ab863fd604e841a89d6b023b92eaed71",
+    "size": 462
+  },
+  "internal/grpc_impls/grpc_grpc_user_server/create_user.go": {
+    "mod_time": "2026-01-13T15:45:58.817432777+08:00",
+    "elements": null,
+    "hash": "5b9eb4ac7b5fcf4fd3da07eed76b751e",
+    "size": 246
+  },
+  "internal/grpc_impls/grpc_grpc_user_server/get_user.go": {
+    "mod_time": "2026-01-13T15:45:58.817789195+08:00",
+    "elements": null,
+    "hash": "de9aae38547c045586dc1506c324ea95",
+    "size": 237
+  },
+  "internal/grpc_impls/grpc_grpc_user_server/init.go": {
+    "mod_time": "2026-01-13T15:45:58.816340648+08:00",
+    "elements": null,
+    "hash": "7fce996377a3aa959d27902874370d41",
+    "size": 347
+  },
+  "internal/grpc_impls/grpc_grpc_user_server/update_user.go": {
+    "mod_time": "2026-01-13T15:45:58.817716028+08:00",
+    "elements": null,
+    "hash": "2dc6eac0827bbc0fcd3f952cf6b17c89",
+    "size": 246
+  },
+  "internal/grpc_impls/grpc_user_server/create_user.go": {
+    "mod_time": "2026-01-13T17:06:30.194544601+08:00",
+    "elements": null,
+    "hash": "ab8a482c5720cf37bdad7cc7433e5e5b",
+    "size": 206
+  },
+  "internal/grpc_impls/grpc_user_server/get_user.go": {
+    "mod_time": "2026-01-13T17:06:30.194887272+08:00",
+    "elements": null,
+    "hash": "64370430513c0591831f155139b226c6",
+    "size": 402
+  },
+  "internal/grpc_impls/grpc_user_server/init.go": {
+    "mod_time": "2026-01-13T17:06:30.195366528+08:00",
+    "elements": [
+      {
+        "Name": "GrpcImpl",
+        "Constructor": "",
+        "Fields": [
+          "GrpcClient"
+        ],
+        "SkipFields": [
+          "UnimplementedUserServer"
+        ],
+        "Implements": [
+          "service.UserServer"
+        ],
+        "Pkg": "grpc_user_server",
+        "PkgPath": "{{.ProjectName}}/internal/grpc_impls/grpc_user_server",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "grpc"
+      }
+    ],
+    "hash": "2e7f10a1ffcb68d8c9b0b99f9f3dc813",
+    "size": 398
+  },
+  "internal/grpc_impls/grpc_user_server/update_user.go": {
+    "mod_time": "2026-01-13T17:06:30.195849285+08:00",
+    "elements": null,
+    "hash": "2f97c00794598685433909b02285e90e",
+    "size": 206
+  },
+  "internal/sdks/clients/tools/ping.go": {
+    "mod_time": "2026-01-13T17:06:30.197970189+08:00",
+    "elements": [
+      {
+        "Name": "NewToolsClient",
+        "Constructor": "NewToolsClient",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "tools",
+        "PkgPath": "{{.ProjectName}}/internal/sdks/clients/tools",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "client"
+      }
+    ],
+    "hash": "f16fdc6886802a6ab3618650a8c73846",
+    "size": 669
+  },
+  "internal/sdks/grpc_clients/shop.go": {
+    "mod_time": "2026-01-13T17:06:31.023839016+08:00",
+    "elements": [
+      {
+        "Name": "NewGrpcClient",
+        "Constructor": "NewGrpcClient",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": null,
+        "Pkg": "grpc_clients",
+        "PkgPath": "{{.ProjectName}}/internal/sdks/grpc_clients",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "client"
+      }
+    ],
+    "hash": "986af9f3f3a99a339d7332f22537762f",
+    "size": 995
+  },
+  "internal/svc_impls/svc_middleware_service/auth.go": {
+    "mod_time": "2026-01-13T17:06:30.200804686+08:00",
+    "elements": null,
+    "hash": "5fa70373bf6484e98e0dd563e8752b0f",
+    "size": 333
+  },
+  "internal/svc_impls/svc_middleware_service/get_auth_value.go": {
+    "mod_time": "2026-01-13T17:06:30.201371568+08:00",
+    "elements": null,
+    "hash": "74ab5d5b079c881206e0cc8615c436de",
+    "size": 192
+  },
+  "internal/svc_impls/svc_middleware_service/init.go": {
+    "mod_time": "2026-01-13T17:06:30.202490667+08:00",
+    "elements": [
+      {
+        "Name": "Service",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": [
+          "service.MiddlewareService"
+        ],
+        "Pkg": "svc_middleware_service",
+        "PkgPath": "{{.ProjectName}}/internal/svc_impls/svc_middleware_service",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "service"
+      }
+    ],
+    "hash": "b69a0f490ccb718e0de273ee6931d44e",
+    "size": 291
+  },
+  "internal/svc_impls/svc_user_service/create.go": {
+    "mod_time": "2026-01-13T17:06:31.032576427+08:00",
+    "elements": null,
+    "hash": "02d8cfed05f219b51f1ef2528d3f8805",
+    "size": 840
+  },
+  "internal/svc_impls/svc_user_service/delete.go": {
+    "mod_time": "2026-01-13T17:06:30.205310205+08:00",
+    "elements": null,
+    "hash": "ba838bee5a66f82474340d72584117e2",
+    "size": 178
+  },
+  "internal/svc_impls/svc_user_service/get_by_email.go": {
+    "mod_time": "2026-01-13T17:06:30.20602034+08:00",
+    "elements": null,
+    "hash": "634453bd4fff622e783f0c7a8d3b65fb",
+    "size": 231
+  },
+  "internal/svc_impls/svc_user_service/get_by_id.go": {
+    "mod_time": "2026-01-13T17:06:30.206681891+08:00",
+    "elements": null,
+    "hash": "03b881d0f92d3742293d135b264fe2be",
+    "size": 219
+  },
+  "internal/svc_impls/svc_user_service/init.go": {
+    "mod_time": "2026-01-13T17:06:30.207348025+08:00",
+    "elements": [
+      {
+        "Name": "Service",
+        "Constructor": "",
+        "Fields": null,
+        "SkipFields": null,
+        "Implements": [
+          "service.UserService"
+        ],
+        "Pkg": "svc_user_service",
+        "PkgPath": "{{.ProjectName}}/internal/svc_impls/svc_user_service",
+        "InitWire": false,
+        "ConfigWire": false,
+        "SetName": "service"
+      }
+    ],
+    "hash": "d2c945a097e3098db77c741f073d19a7",
+    "size": 513
+  },
+  "internal/svc_impls/svc_user_service/list.go": {
+    "mod_time": "2026-01-13T17:06:30.208106785+08:00",
+    "elements": null,
+    "hash": "182469555885e0e851e01dd946c38381",
+    "size": 913
+  },
+  "internal/svc_impls/svc_user_service/update.go": {
+    "mod_time": "2026-01-13T17:06:30.208705418+08:00",
+    "elements": null,
+    "hash": "fa58ba130ca7a109ef7de169a5a64745",
+    "size": 934
+  },
+  "internal/table/users.go": {
+    "mod_time": "2026-01-13T17:06:30.210139604+08:00",
+    "elements": null,
+    "hash": "c0767ce437eef47b3b485ca49535a623",
+    "size": 4193
+  },
+  "internal/version/version.go": {
+    "mod_time": "2026-01-13T17:06:30.21118191+08:00",
+    "elements": null,
+    "hash": "7e532519c1d04fa8268bb330f0ba4e18",
+    "size": 1148
+  },
+  "main.go": {
+    "mod_time": "2026-01-13T01:39:05.377271357+08:00",
+    "elements": null,
+    "hash": "c9c5e4a04533ab26624b3e0cdb06c2e8",
+    "size": 148
+  },
+  "proto/go_gen.go": {
+    "mod_time": "2026-01-13T17:06:30.213026519+08:00",
+    "elements": null,
+    "hash": "cbc6b93aab351e12d6d96c7fe0be0f70",
+    "size": 302
+  },
+  "proto/shop.pb.go": {
+    "mod_time": "2026-01-13T17:09:03.675736986+08:00",
+    "elements": null,
+    "hash": "b574d5a00c8d0cfe7125d173c752f56c",
+    "size": 19094
+  },
+  "proto/shop_grpc.pb.go": {
+    "mod_time": "2026-01-13T17:09:03.67617395+08:00",
+    "elements": null,
+    "hash": "aa10c2d7f5f908052e16fc73efe91c20",
+    "size": 8891
+  },
+  "proto/user.pb.go": {
+    "mod_time": "2026-01-13T17:09:03.609466084+08:00",
+    "elements": null,
+    "hash": "e9acbb5d1e03a85a3837aeea6ab9480c",
+    "size": 13709
+  },
+  "proto/user_grpc.pb.go": {
+    "mod_time": "2026-01-13T17:09:03.609939132+08:00",
+    "elements": null,
+    "hash": "69b4799a8669ff7f63c1c07b92b299d4",
+    "size": 7334
+  },
+  "service/grpc_user.go": {
+    "mod_time": "2026-01-13T17:06:30.219982614+08:00",
+    "elements": null,
+    "hash": "43fbc70f2d1702dc5c82d93e9968e579",
+    "size": 515
+  },
+  "service/mid.go": {
+    "mod_time": "2026-01-13T17:06:30.22049937+08:00",
+    "elements": null,
+    "hash": "d78093d1d6e8d6d4a83ce908cebeb29e",
+    "size": 263
+  },
+  "service/ping.go": {
+    "mod_time": "2026-01-13T17:06:30.22117388+08:00",
+    "elements": null,
+    "hash": "d9ef3144fc22692088c44162dbca5fcc",
+    "size": 225
+  },
+  "service/user.go": {
+    "mod_time": "2026-01-13T17:06:30.221710304+08:00",
+    "elements": null,
+    "hash": "ad24fb3f7b69b71914b3e1341fca1004",
+    "size": 1844
+  }
+}

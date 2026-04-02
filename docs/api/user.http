@@ -1,0 +1,44 @@
+## 用户接口
+
+### 创建用户
+POST http://127.0.0.1:6066/api/v1/user/create
+Content-Type: application/json
+
+{
+  "name": "张三",
+  "email": "dasaying@gmail.com",
+  "avatar": "",
+  "role": "",
+  "department": "",
+  "phone": "1111111",
+  "title": "xxx",
+  "is_active": true
+}
+
+### 删除用户
+DELETE http://127.0.0.1:6066/api/v1/user/delete?id=177d40d9-7919-4e46-a43b-56c5511ccfc2
+
+### 查看用户列表
+POST http://127.0.0.1:6066/api/v1/user/list
+Content-Type: application/json
+
+{
+  "is_active": true,
+  "page": 1,
+  "page_size": 10
+}
+
+### 更新用户
+PUT http://127.0.0.1:6066/api/v1/user/update?id=177d40d9-7919-4e46-a43b-56c5511ccfc2
+Content-Type: application/json
+
+{
+  "name": "张三",
+  "email": "dasaying@gmail.com",
+  "avatar": "",
+  "role": "",
+  "department": "",
+  "phone": "1111111",
+  "title": "xxx",
+  "is_active": true
+}

@@ -1,0 +1,83 @@
+# Go 编译输出
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+dist/
+
+# Go 测试文件
+*.test
+*.out
+coverage.out
+coverage.html
+
+# Go 依赖
+vendor/
+
+# 构建和临时文件
+*.tmp
+*.temp
+*.log
+*.pid
+*.lock
+
+# IDE 和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 应用程序数据
+.mcp-ssh/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# 配置文件（保留示例文件）
+config.yaml
+!config.yaml.example
+!configs/*.example.yaml
+
+# 日志文件
+logs/
+*.log
+
+# 性能分析文件
+*.prof
+*.pprof
+
+# 开发环境
+dev-data/
+.env
+.env.local
+
+# Docker
+.dockerignore
+
+# 证书和密钥
+*.pem
+*.key
+*.crt
+*.p12
+
+# 备份文件
+*.bak
+*.backup
+
+# 前端文件
+frontend/node_modules/
+frontend/dist/
+frontend/.next

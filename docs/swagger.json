@@ -1,0 +1,3610 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "发布系统服务",
+        "title": "发布系统api",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:6066",
+    "basePath": "/api/v1",
+    "paths": {
+        "/auth/menu": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "获取菜单权限配置",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/service.MenuPermission"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/config": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Config"
+                ],
+                "summary": "配置页面",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.WebConfig"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/config/system": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Config"
+                ],
+                "summary": "获取系统配置",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.SystemConfig"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/branches": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "列出符合规则的项目分支",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "项目ID",
+                        "name": "projectID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "规则类型",
+                        "name": "ruleType",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "规则类型",
+                        "name": "ruleVal",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/gitlab.Branch"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/commits": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "列出项目分支提交",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "项目ID",
+                        "name": "projectID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "规则类型",
+                        "name": "ruleType",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "规则类型",
+                        "name": "ruleVal",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/gitlab.Commit"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/groups": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "列出所有组",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/gitlab.Group"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/groups/ci_runners": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "获取gitlab组CI Runner状态",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/service.GitlabGroupCIRunnerStatus"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/groups/ci_runners/status": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "更新gitlab组CI Runner状态",
+                "parameters": [
+                    {
+                        "type": "boolean",
+                        "description": "是否自动注入",
+                        "name": "enable_auto_register",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "组ID",
+                        "name": "group_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "组名",
+                        "name": "group_name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "运行令牌",
+                        "name": "runners_token",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/project": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "根据ID获取项目",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "组ID",
+                        "name": "group_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "ID列表",
+                        "name": "idList",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "排序字段",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "pageNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/gitlab.Project"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/project/blob": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "获取项目文件内容",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "文件名",
+                        "name": "filename",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "ID列表",
+                        "name": "idList",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "排序字段",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "pageNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "分支",
+                        "name": "ref",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/projects": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "列出项目组内项目",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "组ID",
+                        "name": "group_id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "ID列表",
+                        "name": "idList",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "排序字段",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "pageNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/gitlab.Project"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/search/blobs": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "搜索gitlab仓库中的文件",
+                "parameters": [
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "组ID",
+                        "name": "groupIDs",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "使用用户Token",
+                        "name": "userToken",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/service.GitlabSearchBlobsResult"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/gitlab/tags": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Gitlab"
+                ],
+                "summary": "列出项目Tags",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "项目ID",
+                        "name": "projectID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "规则类型",
+                        "name": "ruleType",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "规则类型",
+                        "name": "ruleVal",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/gitlab.Tag"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/tools/ping": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Webhook"
+                ],
+                "summary": "测试心跳接口",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "data",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user/delete": {
+            "delete": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "删除用户",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user/gitlab": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "获取用户信息",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "gitlab_id",
+                        "name": "gitlabID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "ID列表",
+                        "name": "idList",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "排序字段",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "pageNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "用户组ID",
+                        "name": "userGroupIDs",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "是否包含禁用",
+                        "name": "withDisabled",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.UserRet"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user/info": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "获取用户信息",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.QueryUser"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user/list": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "获取用户列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "gitlab_id",
+                        "name": "gitlabID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "ID列表",
+                        "name": "idList",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "排序字段",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "pageNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "用户组ID",
+                        "name": "userGroupIDs",
+                        "in": "query"
+                    },
+                    {
+                        "type": "boolean",
+                        "description": "是否包含禁用",
+                        "name": "withDisabled",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/service.UserRet"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user/update": {
+            "put": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "修改用户",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "头像地址",
+                        "name": "avatarUrl",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "创建时间",
+                        "name": "created_at",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "邮箱地址",
+                        "name": "email",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "GitlabID",
+                        "name": "gitlabID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户名",
+                        "name": "gitlab_name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "状态",
+                        "name": "status",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "更新时间",
+                        "name": "updated_at",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "登录名",
+                        "name": "username",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.UpdateUserRet"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user_group/delete": {
+            "delete": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserGroup"
+                ],
+                "summary": "删除用户组",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user_group/list": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserGroup"
+                ],
+                "summary": "获取用户组列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "ID",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "description": "ID列表",
+                        "name": "idList",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "关键字",
+                        "name": "keyword",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "排序字段",
+                        "name": "order",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "页码",
+                        "name": "pageNo",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "每页数量",
+                        "name": "pageSize",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "userID",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/service.UserGroupRet"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user_group/update": {
+            "put": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserGroup"
+                ],
+                "summary": "编辑用户组",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "描述",
+                        "name": "description",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "id",
+                        "name": "id",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "用户组名",
+                        "name": "name",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "description": "状态",
+                        "name": "status",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.IDRet"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user_group/user": {
+            "put": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserGroup"
+                ],
+                "summary": "更新用户组关联关系",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "groupID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "groupIDs",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "userIDs",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/user_group/users": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "UserGroup"
+                ],
+                "summary": "获取用户组用户列表",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "name": "groupID",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "groupIDs",
+                        "in": "query"
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "collectionFormat": "csv",
+                        "name": "userIDs",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        },
+        "/webhook/gitlab/oauth2": {
+            "get": {
+                "description": "TODO: 补充接口详细描述",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Webhook"
+                ],
+                "summary": "gitlab oath2验证",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "oath返回码",
+                        "name": "code",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "原始Url",
+                        "name": "origin",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/service.Oauth2Resp"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "gitlab.AccessControlValue": {
+            "type": "string",
+            "enum": [
+                "disabled",
+                "enabled",
+                "private",
+                "public"
+            ],
+            "x-enum-varnames": [
+                "DisabledAccessControl",
+                "EnabledAccessControl",
+                "PrivateAccessControl",
+                "PublicAccessControl"
+            ]
+        },
+        "gitlab.AccessLevelValue": {
+            "type": "integer",
+            "enum": [
+                0,
+                5,
+                10,
+                15,
+                20,
+                30,
+                40,
+                50,
+                60
+            ],
+            "x-enum-varnames": [
+                "NoPermissions",
+                "MinimalAccessPermissions",
+                "GuestPermissions",
+                "PlannerPermissions",
+                "ReporterPermissions",
+                "DeveloperPermissions",
+                "MaintainerPermissions",
+                "OwnerPermissions",
+                "AdminPermissions"
+            ]
+        },
+        "gitlab.BasicUser": {
+            "type": "object",
+            "properties": {
+                "avatar_url": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "locked": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.Branch": {
+            "type": "object",
+            "properties": {
+                "can_push": {
+                    "type": "boolean"
+                },
+                "commit": {
+                    "$ref": "#/definitions/gitlab.Commit"
+                },
+                "default": {
+                    "type": "boolean"
+                },
+                "developers_can_merge": {
+                    "type": "boolean"
+                },
+                "developers_can_push": {
+                    "type": "boolean"
+                },
+                "merged": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protected": {
+                    "type": "boolean"
+                },
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.BranchProtectionDefaults": {
+            "type": "object",
+            "properties": {
+                "allow_force_push": {
+                    "type": "boolean"
+                },
+                "allowed_to_merge": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.GroupAccessLevel"
+                    }
+                },
+                "allowed_to_push": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.GroupAccessLevel"
+                    }
+                },
+                "developer_can_initial_push": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "gitlab.BuildStateValue": {
+            "type": "string",
+            "enum": [
+                "created",
+                "waiting_for_resource",
+                "preparing",
+                "pending",
+                "running",
+                "success",
+                "failed",
+                "canceled",
+                "skipped",
+                "manual",
+                "scheduled"
+            ],
+            "x-enum-varnames": [
+                "Created",
+                "WaitingForResource",
+                "Preparing",
+                "Pending",
+                "Running",
+                "Success",
+                "Failed",
+                "Canceled",
+                "Skipped",
+                "Manual",
+                "Scheduled"
+            ]
+        },
+        "gitlab.CIPipelineVariablesMinimumOverrideRoleValue": {
+            "type": "string",
+            "enum": [
+                "no_one_allowed",
+                "owner",
+                "maintainer",
+                "developer"
+            ],
+            "x-enum-varnames": [
+                "CIPipelineVariablesNoOneAllowedRole",
+                "CiPipelineVariablesOwnerRole",
+                "CiPipelineVariablesMaintainerRole",
+                "CIPipelineVariablesDeveloperRole"
+            ]
+        },
+        "gitlab.Commit": {
+            "type": "object",
+            "properties": {
+                "author_email": {
+                    "type": "string"
+                },
+                "author_name": {
+                    "type": "string"
+                },
+                "authored_date": {
+                    "type": "string"
+                },
+                "committed_date": {
+                    "type": "string"
+                },
+                "committer_email": {
+                    "type": "string"
+                },
+                "committer_name": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "extended_trailers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "last_pipeline": {
+                    "$ref": "#/definitions/gitlab.PipelineInfo"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "parent_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "project_id": {
+                    "type": "integer"
+                },
+                "short_id": {
+                    "type": "string"
+                },
+                "stats": {
+                    "$ref": "#/definitions/gitlab.CommitStats"
+                },
+                "status": {
+                    "$ref": "#/definitions/gitlab.BuildStateValue"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "trailers": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.CommitStats": {
+            "type": "object",
+            "properties": {
+                "additions": {
+                    "type": "integer"
+                },
+                "deletions": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "gitlab.ContainerExpirationPolicy": {
+            "type": "object",
+            "properties": {
+                "cadence": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "keep_n": {
+                    "type": "integer"
+                },
+                "name_regex": {
+                    "description": "Deprecated: use NameRegexDelete instead",
+                    "type": "string"
+                },
+                "name_regex_delete": {
+                    "type": "string"
+                },
+                "name_regex_keep": {
+                    "type": "string"
+                },
+                "next_run_at": {
+                    "type": "string"
+                },
+                "older_than": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.CustomAttribute": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.ForkParent": {
+            "type": "object",
+            "properties": {
+                "http_url_to_repo": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "name_with_namespace": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "path_with_namespace": {
+                    "type": "string"
+                },
+                "repository_storage": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.Group": {
+            "type": "object",
+            "properties": {
+                "allow_merge_on_skipped_pipeline": {
+                    "type": "boolean"
+                },
+                "allowed_email_domains_list": {
+                    "type": "string"
+                },
+                "auto_devops_enabled": {
+                    "type": "boolean"
+                },
+                "avatar_url": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "custom_attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.CustomAttribute"
+                    }
+                },
+                "default_branch": {
+                    "type": "string"
+                },
+                "default_branch_protection": {
+                    "description": "Deprecated: Use DefaultBranchProtectionDefaults instead",
+                    "type": "integer"
+                },
+                "default_branch_protection_defaults": {
+                    "$ref": "#/definitions/gitlab.BranchProtectionDefaults"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "emails_disabled": {
+                    "description": "Deprecated: Use EmailsEnabled instead",
+                    "type": "boolean"
+                },
+                "emails_enabled": {
+                    "type": "boolean"
+                },
+                "extra_shared_runners_minutes_limit": {
+                    "type": "integer"
+                },
+                "file_template_project_id": {
+                    "type": "integer"
+                },
+                "full_name": {
+                    "type": "string"
+                },
+                "full_path": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "ip_restriction_ranges": {
+                    "type": "string"
+                },
+                "ldap_access": {
+                    "$ref": "#/definitions/gitlab.AccessLevelValue"
+                },
+                "ldap_cn": {
+                    "type": "string"
+                },
+                "ldap_group_links": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.LDAPGroupLink"
+                    }
+                },
+                "lfs_enabled": {
+                    "type": "boolean"
+                },
+                "marked_for_deletion_on": {
+                    "type": "string"
+                },
+                "max_artifacts_size": {
+                    "type": "integer"
+                },
+                "membership_lock": {
+                    "type": "boolean"
+                },
+                "mentions_disabled": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "only_allow_merge_if_all_discussions_are_resolved": {
+                    "type": "boolean"
+                },
+                "only_allow_merge_if_pipeline_succeeds": {
+                    "type": "boolean"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "prevent_forking_outside_group": {
+                    "type": "boolean"
+                },
+                "project_creation_level": {
+                    "$ref": "#/definitions/gitlab.ProjectCreationLevelValue"
+                },
+                "projects": {
+                    "description": "Deprecated: will be removed in v5 of the API, use ListGroupProjects instead",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.Project"
+                    }
+                },
+                "repository_storage": {
+                    "type": "string"
+                },
+                "request_access_enabled": {
+                    "type": "boolean"
+                },
+                "require_two_factor_authentication": {
+                    "type": "boolean"
+                },
+                "runners_token": {
+                    "type": "string"
+                },
+                "saml_group_links": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.SAMLGroupLink"
+                    }
+                },
+                "share_with_group_lock": {
+                    "type": "boolean"
+                },
+                "shared_projects": {
+                    "description": "Deprecated: will be removed in v5 of the API, use ListGroupSharedProjects instead",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.Project"
+                    }
+                },
+                "shared_runners_minutes_limit": {
+                    "type": "integer"
+                },
+                "shared_runners_setting": {
+                    "$ref": "#/definitions/gitlab.SharedRunnersSettingValue"
+                },
+                "shared_with_groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.SharedWithGroup"
+                    }
+                },
+                "statistics": {
+                    "$ref": "#/definitions/gitlab.Statistics"
+                },
+                "subgroup_creation_level": {
+                    "$ref": "#/definitions/gitlab.SubGroupCreationLevelValue"
+                },
+                "two_factor_grace_period": {
+                    "type": "integer"
+                },
+                "visibility": {
+                    "$ref": "#/definitions/gitlab.VisibilityValue"
+                },
+                "web_url": {
+                    "type": "string"
+                },
+                "wiki_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                }
+            }
+        },
+        "gitlab.GroupAccess": {
+            "type": "object",
+            "properties": {
+                "access_level": {
+                    "$ref": "#/definitions/gitlab.AccessLevelValue"
+                },
+                "notification_level": {
+                    "$ref": "#/definitions/gitlab.NotificationLevelValue"
+                }
+            }
+        },
+        "gitlab.GroupAccessLevel": {
+            "type": "object",
+            "properties": {
+                "access_level": {
+                    "$ref": "#/definitions/gitlab.AccessLevelValue"
+                }
+            }
+        },
+        "gitlab.LDAPGroupLink": {
+            "type": "object",
+            "properties": {
+                "cn": {
+                    "type": "string"
+                },
+                "filter": {
+                    "type": "string"
+                },
+                "group_access": {
+                    "$ref": "#/definitions/gitlab.AccessLevelValue"
+                },
+                "member_role_id": {
+                    "type": "integer"
+                },
+                "provider": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.Links": {
+            "type": "object",
+            "properties": {
+                "cluster_agents": {
+                    "type": "string"
+                },
+                "events": {
+                    "type": "string"
+                },
+                "issues": {
+                    "type": "string"
+                },
+                "labels": {
+                    "type": "string"
+                },
+                "members": {
+                    "type": "string"
+                },
+                "merge_requests": {
+                    "type": "string"
+                },
+                "repo_branches": {
+                    "type": "string"
+                },
+                "self": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.MergeMethodValue": {
+            "type": "string",
+            "enum": [
+                "merge",
+                "ff",
+                "rebase_merge"
+            ],
+            "x-enum-varnames": [
+                "NoFastForwardMerge",
+                "FastForwardMerge",
+                "RebaseMerge"
+            ]
+        },
+        "gitlab.NotificationLevelValue": {
+            "type": "integer",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "x-enum-varnames": [
+                "DisabledNotificationLevel",
+                "ParticipatingNotificationLevel",
+                "WatchNotificationLevel",
+                "GlobalNotificationLevel",
+                "MentionNotificationLevel",
+                "CustomNotificationLevel"
+            ]
+        },
+        "gitlab.Permissions": {
+            "type": "object",
+            "properties": {
+                "group_access": {
+                    "$ref": "#/definitions/gitlab.GroupAccess"
+                },
+                "project_access": {
+                    "$ref": "#/definitions/gitlab.ProjectAccess"
+                }
+            }
+        },
+        "gitlab.PipelineInfo": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "iid": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "project_id": {
+                    "type": "integer"
+                },
+                "ref": {
+                    "type": "string"
+                },
+                "sha": {
+                    "type": "string"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.Project": {
+            "type": "object",
+            "properties": {
+                "_links": {
+                    "$ref": "#/definitions/gitlab.Links"
+                },
+                "allow_merge_on_skipped_pipeline": {
+                    "type": "boolean"
+                },
+                "allow_pipeline_trigger_approve_deployment": {
+                    "type": "boolean"
+                },
+                "analytics_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "approvals_before_merge": {
+                    "description": "Deprecated: use Merge Request Approvals API instead",
+                    "type": "integer"
+                },
+                "archived": {
+                    "type": "boolean"
+                },
+                "auto_cancel_pending_pipelines": {
+                    "type": "string"
+                },
+                "auto_devops_deploy_strategy": {
+                    "type": "string"
+                },
+                "auto_devops_enabled": {
+                    "type": "boolean"
+                },
+                "auto_duo_code_review_enabled": {
+                    "type": "boolean"
+                },
+                "autoclose_referenced_issues": {
+                    "type": "boolean"
+                },
+                "avatar_url": {
+                    "type": "string"
+                },
+                "build_coverage_regex": {
+                    "type": "string"
+                },
+                "build_git_strategy": {
+                    "type": "string"
+                },
+                "build_timeout": {
+                    "type": "integer"
+                },
+                "builds_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "can_create_merge_request_in": {
+                    "type": "boolean"
+                },
+                "ci_allow_fork_pipelines_to_run_in_parent_project": {
+                    "type": "boolean"
+                },
+                "ci_config_path": {
+                    "type": "string"
+                },
+                "ci_default_git_depth": {
+                    "type": "integer"
+                },
+                "ci_delete_pipelines_in_seconds": {
+                    "type": "integer"
+                },
+                "ci_forward_deployment_enabled": {
+                    "type": "boolean"
+                },
+                "ci_forward_deployment_rollback_allowed": {
+                    "type": "boolean"
+                },
+                "ci_id_token_sub_claim_components": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "ci_job_token_scope_enabled": {
+                    "type": "boolean"
+                },
+                "ci_opt_in_jwt": {
+                    "type": "boolean"
+                },
+                "ci_pipeline_variables_minimum_override_role": {
+                    "$ref": "#/definitions/gitlab.CIPipelineVariablesMinimumOverrideRoleValue"
+                },
+                "ci_push_repository_for_job_token_allowed": {
+                    "type": "boolean"
+                },
+                "ci_restrict_pipeline_cancellation_role": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "ci_separated_caches": {
+                    "type": "boolean"
+                },
+                "compliance_frameworks": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "container_expiration_policy": {
+                    "$ref": "#/definitions/gitlab.ContainerExpirationPolicy"
+                },
+                "container_registry_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "container_registry_enabled": {
+                    "description": "Deprecated: use ContainerRegistryAccessLevel instead",
+                    "type": "boolean"
+                },
+                "container_registry_image_prefix": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "creator_id": {
+                    "type": "integer"
+                },
+                "custom_attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.CustomAttribute"
+                    }
+                },
+                "default_branch": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "emails_disabled": {
+                    "description": "Deprecated: Use EmailsEnabled instead",
+                    "type": "boolean"
+                },
+                "emails_enabled": {
+                    "type": "boolean"
+                },
+                "empty_repo": {
+                    "type": "boolean"
+                },
+                "enforce_auth_checks_on_uploads": {
+                    "type": "boolean"
+                },
+                "environments_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "external_authorization_classification_label": {
+                    "type": "string"
+                },
+                "feature_flags_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "forked_from_project": {
+                    "$ref": "#/definitions/gitlab.ForkParent"
+                },
+                "forking_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "forks_count": {
+                    "type": "integer"
+                },
+                "group_runners_enabled": {
+                    "type": "boolean"
+                },
+                "http_url_to_repo": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "import_error": {
+                    "type": "string"
+                },
+                "import_status": {
+                    "type": "string"
+                },
+                "import_type": {
+                    "type": "string"
+                },
+                "import_url": {
+                    "type": "string"
+                },
+                "infrastructure_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "issue_branch_template": {
+                    "type": "string"
+                },
+                "issues_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "issues_enabled": {
+                    "description": "Deprecated: use IssuesAccessLevel instead",
+                    "type": "boolean"
+                },
+                "issues_template": {
+                    "type": "string"
+                },
+                "jobs_enabled": {
+                    "description": "Deprecated: use BuildsAccessLevel instead",
+                    "type": "boolean"
+                },
+                "keep_latest_artifact": {
+                    "type": "boolean"
+                },
+                "last_activity_at": {
+                    "type": "string"
+                },
+                "lfs_enabled": {
+                    "type": "boolean"
+                },
+                "license": {
+                    "$ref": "#/definitions/gitlab.ProjectLicense"
+                },
+                "license_url": {
+                    "type": "string"
+                },
+                "marked_for_deletion_at": {
+                    "description": "Deprecated: use MarkedForDeletionOn instead",
+                    "type": "string"
+                },
+                "marked_for_deletion_on": {
+                    "type": "string"
+                },
+                "max_artifacts_size": {
+                    "type": "integer"
+                },
+                "merge_commit_template": {
+                    "type": "string"
+                },
+                "merge_method": {
+                    "$ref": "#/definitions/gitlab.MergeMethodValue"
+                },
+                "merge_pipelines_enabled": {
+                    "type": "boolean"
+                },
+                "merge_requests_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "merge_requests_enabled": {
+                    "description": "Deprecated: use MergeRequestsAccessLevel instead",
+                    "type": "boolean"
+                },
+                "merge_requests_template": {
+                    "type": "string"
+                },
+                "merge_trains_enabled": {
+                    "type": "boolean"
+                },
+                "merge_trains_skip_train_allowed": {
+                    "type": "boolean"
+                },
+                "mirror": {
+                    "type": "boolean"
+                },
+                "mirror_overwrites_diverged_branches": {
+                    "type": "boolean"
+                },
+                "mirror_trigger_builds": {
+                    "type": "boolean"
+                },
+                "mirror_user_id": {
+                    "type": "integer"
+                },
+                "model_experiments_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "model_registry_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "monitor_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "mr_default_target_self": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "name_with_namespace": {
+                    "type": "string"
+                },
+                "namespace": {
+                    "$ref": "#/definitions/gitlab.ProjectNamespace"
+                },
+                "only_allow_merge_if_all_discussions_are_resolved": {
+                    "type": "boolean"
+                },
+                "only_allow_merge_if_pipeline_succeeds": {
+                    "type": "boolean"
+                },
+                "only_mirror_protected_branches": {
+                    "type": "boolean"
+                },
+                "open_issues_count": {
+                    "type": "integer"
+                },
+                "operations_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "owner": {
+                    "$ref": "#/definitions/gitlab.User"
+                },
+                "packages_enabled": {
+                    "type": "boolean"
+                },
+                "pages_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "path_with_namespace": {
+                    "type": "string"
+                },
+                "permissions": {
+                    "$ref": "#/definitions/gitlab.Permissions"
+                },
+                "pre_receive_secret_detection_enabled": {
+                    "type": "boolean"
+                },
+                "prevent_merge_without_jira_issue": {
+                    "type": "boolean"
+                },
+                "printing_merge_request_link_enabled": {
+                    "type": "boolean"
+                },
+                "public_builds": {
+                    "description": "Deprecated: This parameter has been renamed to PublicJobs in GitLab 9.0.",
+                    "type": "boolean"
+                },
+                "public_jobs": {
+                    "type": "boolean"
+                },
+                "readme_url": {
+                    "type": "string"
+                },
+                "releases_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "remove_source_branch_after_merge": {
+                    "type": "boolean"
+                },
+                "repository_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "repository_storage": {
+                    "type": "string"
+                },
+                "request_access_enabled": {
+                    "type": "boolean"
+                },
+                "requirements_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "requirements_enabled": {
+                    "type": "boolean"
+                },
+                "resolve_outdated_diff_discussions": {
+                    "type": "boolean"
+                },
+                "resource_group_default_process_mode": {
+                    "$ref": "#/definitions/gitlab.ResourceGroupProcessMode"
+                },
+                "restrict_user_defined_variables": {
+                    "description": "Deprecated: use CIPipelineVariablesMinimumOverrideRole instead",
+                    "type": "boolean"
+                },
+                "runner_token_expiration_interval": {
+                    "type": "integer"
+                },
+                "runners_token": {
+                    "type": "string"
+                },
+                "security_and_compliance_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "security_and_compliance_enabled": {
+                    "type": "boolean"
+                },
+                "service_desk_address": {
+                    "type": "string"
+                },
+                "service_desk_enabled": {
+                    "type": "boolean"
+                },
+                "shared_runners_enabled": {
+                    "type": "boolean"
+                },
+                "shared_with_groups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.ProjectSharedWithGroup"
+                    }
+                },
+                "snippets_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "snippets_enabled": {
+                    "description": "Deprecated: use SnippetsAccessLevel instead",
+                    "type": "boolean"
+                },
+                "squash_commit_template": {
+                    "type": "string"
+                },
+                "squash_option": {
+                    "$ref": "#/definitions/gitlab.SquashOptionValue"
+                },
+                "ssh_url_to_repo": {
+                    "type": "string"
+                },
+                "star_count": {
+                    "type": "integer"
+                },
+                "statistics": {
+                    "$ref": "#/definitions/gitlab.Statistics"
+                },
+                "suggestion_commit_message": {
+                    "type": "string"
+                },
+                "tag_list": {
+                    "description": "Deprecated: use Topics instead",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "topics": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "updated_at": {
+                    "type": "string"
+                },
+                "visibility": {
+                    "$ref": "#/definitions/gitlab.VisibilityValue"
+                },
+                "web_url": {
+                    "type": "string"
+                },
+                "wiki_access_level": {
+                    "$ref": "#/definitions/gitlab.AccessControlValue"
+                },
+                "wiki_enabled": {
+                    "description": "Deprecated: use WikiAccessLevel instead",
+                    "type": "boolean"
+                }
+            }
+        },
+        "gitlab.ProjectAccess": {
+            "type": "object",
+            "properties": {
+                "access_level": {
+                    "$ref": "#/definitions/gitlab.AccessLevelValue"
+                },
+                "notification_level": {
+                    "$ref": "#/definitions/gitlab.NotificationLevelValue"
+                }
+            }
+        },
+        "gitlab.ProjectCreationLevelValue": {
+            "type": "string",
+            "enum": [
+                "noone",
+                "maintainer",
+                "developer",
+                "owner",
+                "administrator"
+            ],
+            "x-enum-varnames": [
+                "NoOneProjectCreation",
+                "MaintainerProjectCreation",
+                "DeveloperProjectCreation",
+                "OwnerProjectCreation",
+                "AdministratorProjectCreation"
+            ]
+        },
+        "gitlab.ProjectLicense": {
+            "type": "object",
+            "properties": {
+                "html_url": {
+                    "type": "string"
+                },
+                "key": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "nickname": {
+                    "type": "string"
+                },
+                "source_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.ProjectNamespace": {
+            "type": "object",
+            "properties": {
+                "avatar_url": {
+                    "type": "string"
+                },
+                "full_path": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "kind": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.ProjectSharedWithGroup": {
+            "type": "object",
+            "properties": {
+                "expires_at": {
+                    "type": "string"
+                },
+                "group_access_level": {
+                    "type": "integer"
+                },
+                "group_full_path": {
+                    "type": "string"
+                },
+                "group_id": {
+                    "type": "integer"
+                },
+                "group_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.ReleaseNote": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "tag_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.ResourceGroupProcessMode": {
+            "type": "string",
+            "enum": [
+                "unordered",
+                "oldest_first",
+                "newest_first",
+                "newest_ready_first"
+            ],
+            "x-enum-varnames": [
+                "Unordered",
+                "OldestFirst",
+                "NewestFirst",
+                "NewestReadyFirst"
+            ]
+        },
+        "gitlab.SAMLGroupLink": {
+            "type": "object",
+            "properties": {
+                "access_level": {
+                    "$ref": "#/definitions/gitlab.AccessLevelValue"
+                },
+                "member_role_id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.SharedRunnersSettingValue": {
+            "type": "string",
+            "enum": [
+                "enabled",
+                "disabled_and_overridable",
+                "disabled_and_unoverridable",
+                "disabled_with_override"
+            ],
+            "x-enum-varnames": [
+                "EnabledSharedRunnersSettingValue",
+                "DisabledAndOverridableSharedRunnersSettingValue",
+                "DisabledAndUnoverridableSharedRunnersSettingValue",
+                "DisabledWithOverrideSharedRunnersSettingValue"
+            ]
+        },
+        "gitlab.SharedWithGroup": {
+            "type": "object",
+            "properties": {
+                "expires_at": {
+                    "type": "string"
+                },
+                "group_access_level": {
+                    "type": "integer"
+                },
+                "group_full_path": {
+                    "type": "string"
+                },
+                "group_id": {
+                    "type": "integer"
+                },
+                "group_name": {
+                    "type": "string"
+                },
+                "member_role_id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "gitlab.SquashOptionValue": {
+            "type": "string",
+            "enum": [
+                "never",
+                "always",
+                "default_off",
+                "default_on"
+            ],
+            "x-enum-varnames": [
+                "SquashOptionNever",
+                "SquashOptionAlways",
+                "SquashOptionDefaultOff",
+                "SquashOptionDefaultOn"
+            ]
+        },
+        "gitlab.Statistics": {
+            "type": "object",
+            "properties": {
+                "commit_count": {
+                    "type": "integer"
+                },
+                "container_registry_size": {
+                    "type": "integer"
+                },
+                "job_artifacts_size": {
+                    "type": "integer"
+                },
+                "lfs_objects_size": {
+                    "type": "integer"
+                },
+                "packages_size": {
+                    "type": "integer"
+                },
+                "pipeline_artifacts_size": {
+                    "type": "integer"
+                },
+                "repository_size": {
+                    "type": "integer"
+                },
+                "snippets_size": {
+                    "type": "integer"
+                },
+                "storage_size": {
+                    "type": "integer"
+                },
+                "uploads_size": {
+                    "type": "integer"
+                },
+                "wiki_size": {
+                    "type": "integer"
+                }
+            }
+        },
+        "gitlab.SubGroupCreationLevelValue": {
+            "type": "string",
+            "enum": [
+                "owner",
+                "maintainer"
+            ],
+            "x-enum-varnames": [
+                "OwnerSubGroupCreationLevelValue",
+                "MaintainerSubGroupCreationLevelValue"
+            ]
+        },
+        "gitlab.Tag": {
+            "type": "object",
+            "properties": {
+                "commit": {
+                    "$ref": "#/definitions/gitlab.Commit"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "protected": {
+                    "type": "boolean"
+                },
+                "release": {
+                    "$ref": "#/definitions/gitlab.ReleaseNote"
+                },
+                "target": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.User": {
+            "type": "object",
+            "properties": {
+                "avatar_url": {
+                    "type": "string"
+                },
+                "bio": {
+                    "type": "string"
+                },
+                "bot": {
+                    "type": "boolean"
+                },
+                "can_create_group": {
+                    "type": "boolean"
+                },
+                "can_create_organization": {
+                    "type": "boolean"
+                },
+                "can_create_project": {
+                    "type": "boolean"
+                },
+                "color_scheme_id": {
+                    "type": "integer"
+                },
+                "confirmed_at": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "created_by": {
+                    "$ref": "#/definitions/gitlab.BasicUser"
+                },
+                "current_sign_in_at": {
+                    "type": "string"
+                },
+                "current_sign_in_ip": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "custom_attributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.CustomAttribute"
+                    }
+                },
+                "email": {
+                    "type": "string"
+                },
+                "extern_uid": {
+                    "type": "string"
+                },
+                "external": {
+                    "type": "boolean"
+                },
+                "extra_shared_runners_minutes_limit": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "identities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/gitlab.UserIdentity"
+                    }
+                },
+                "is_admin": {
+                    "type": "boolean"
+                },
+                "is_auditor": {
+                    "type": "boolean"
+                },
+                "job_title": {
+                    "type": "string"
+                },
+                "last_activity_on": {
+                    "type": "string"
+                },
+                "last_sign_in_at": {
+                    "type": "string"
+                },
+                "last_sign_in_ip": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "linkedin": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "locked": {
+                    "type": "boolean"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "namespace_id": {
+                    "type": "integer"
+                },
+                "note": {
+                    "type": "string"
+                },
+                "organization": {
+                    "type": "string"
+                },
+                "private_profile": {
+                    "type": "boolean"
+                },
+                "projects_limit": {
+                    "type": "integer"
+                },
+                "provider": {
+                    "type": "string"
+                },
+                "public_email": {
+                    "type": "string"
+                },
+                "shared_runners_minutes_limit": {
+                    "type": "integer"
+                },
+                "skype": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "theme_id": {
+                    "type": "integer"
+                },
+                "twitter": {
+                    "type": "string"
+                },
+                "two_factor_enabled": {
+                    "type": "boolean"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "using_license_seat": {
+                    "type": "boolean"
+                },
+                "web_url": {
+                    "type": "string"
+                },
+                "website_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.UserIdentity": {
+            "type": "object",
+            "properties": {
+                "extern_uid": {
+                    "type": "string"
+                },
+                "provider": {
+                    "type": "string"
+                }
+            }
+        },
+        "gitlab.VisibilityValue": {
+            "type": "string",
+            "enum": [
+                "private",
+                "internal",
+                "public"
+            ],
+            "x-enum-varnames": [
+                "PrivateVisibility",
+                "InternalVisibility",
+                "PublicVisibility"
+            ]
+        },
+        "service.CorpAppConfig": {
+            "type": "object",
+            "properties": {
+                "agentId": {
+                    "type": "integer"
+                },
+                "cropId": {
+                    "type": "string"
+                },
+                "secret": {
+                    "type": "string"
+                }
+            }
+        },
+        "service.ExternalLink": {
+            "type": "object",
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tips": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
+        "service.GitlabGroupCIRunnerStatus": {
+            "type": "object",
+            "properties": {
+                "enable_auto_register": {
+                    "description": "是否自动注入",
+                    "type": "boolean"
+                },
+                "group_id": {
+                    "description": "组ID",
+                    "type": "integer"
+                },
+                "group_name": {
+                    "description": "组名",
+                    "type": "string"
+                },
+                "runners_token": {
+                    "description": "运行令牌",
+                    "type": "string"
+                }
+            }
+        },
+        "service.GitlabOauthConfig": {
+            "type": "object",
+            "properties": {
+                "app_id": {
+                    "description": "应用ID",
+                    "type": "string"
+                },
+                "icon": {
+                    "description": "图标",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "登录地址",
+                    "type": "string"
+                }
+            }
+        },
+        "service.GitlabSearchBlobsProjectResult": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "description": "文件内容",
+                    "type": "string"
+                },
+                "filename": {
+                    "description": "文件名",
+                    "type": "string"
+                },
+                "ref": {
+                    "description": "分支",
+                    "type": "string"
+                }
+            }
+        },
+        "service.GitlabSearchBlobsResult": {
+            "type": "object",
+            "properties": {
+                "groupID": {
+                    "description": "组ID",
+                    "type": "integer"
+                },
+                "projectID": {
+                    "description": "项目ID",
+                    "type": "integer"
+                },
+                "projectName": {
+                    "description": "项目名称",
+                    "type": "string"
+                },
+                "projectUrl": {
+                    "description": "项目地址",
+                    "type": "string"
+                },
+                "results": {
+                    "description": "结果",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/service.GitlabSearchBlobsProjectResult"
+                    }
+                }
+            }
+        },
+        "service.IDRet": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "service.MenuPermission": {
+            "type": "object",
+            "properties": {
+                "columnMethods": {
+                    "description": "列方法",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/service.Method"
+                    }
+                },
+                "component": {
+                    "description": "组件",
+                    "type": "string"
+                },
+                "createUrl": {
+                    "description": "创建接口",
+                    "type": "string"
+                },
+                "deleteUrl": {
+                    "description": "删除接口",
+                    "type": "string"
+                },
+                "editUrl": {
+                    "description": "修改接口",
+                    "type": "string"
+                },
+                "fetchUrl": {
+                    "description": "获取数据接口",
+                    "type": "string"
+                },
+                "menu": {
+                    "description": "菜单",
+                    "type": "string"
+                },
+                "methods": {
+                    "description": "方法",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/service.Method"
+                    }
+                },
+                "name": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "public": {
+                    "description": "是否公开",
+                    "type": "boolean"
+                },
+                "title": {
+                    "description": "菜单标题",
+                    "type": "string"
+                }
+            }
+        },
+        "service.Method": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "方法ID",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "方法名称",
+                    "type": "string"
+                }
+            }
+        },
+        "service.Oauth2Resp": {
+            "type": "object"
+        },
+        "service.QueryUser": {
+            "type": "object",
+            "properties": {
+                "avatarUrl": {
+                    "description": "头像地址",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "创建时间",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "邮箱地址",
+                    "type": "string"
+                },
+                "gitlab_id": {
+                    "description": "GitlabID",
+                    "type": "integer"
+                },
+                "gitlab_name": {
+                    "description": "用户名",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "状态",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "description": "更新时间",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "登录名",
+                    "type": "string"
+                }
+            }
+        },
+        "service.SystemConfig": {
+            "type": "object",
+            "properties": {
+                "corpAppConfig": {
+                    "description": "默认企业应用",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/service.CorpAppConfig"
+                        }
+                    ]
+                },
+                "dailyReportWebhook": {
+                    "description": "部署日报推送机器人",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "defaultServerDeployImage": {
+                    "description": "系统默认服务器部署镜像",
+                    "type": "string"
+                },
+                "enableNewKubeApiVersion": {
+                    "description": "启用 k8s 集群版本 apiVersion 版本",
+                    "type": "boolean"
+                },
+                "enableNewKubeApiVersionClusterList": {
+                    "description": "启用 k8s 高版本的集群ID列表",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "enableProductionDeployLimit": {
+                    "description": "生产发布限制",
+                    "type": "boolean"
+                },
+                "enableProjectLevelProductionPermit": {
+                    "description": "使用项目级别生产权限控制",
+                    "type": "boolean"
+                },
+                "enableServerGlobalDeployerImage": {
+                    "description": "强制使用默认部署镜像",
+                    "type": "boolean"
+                },
+                "externalLinks": {
+                    "description": "外部链接",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/service.ExternalLink"
+                    }
+                },
+                "globalProductionDeployWebhook": {
+                    "description": "全局webhook",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "kubeConfig": {
+                    "description": "K8s相关配置",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/service.SystemKubeConfig"
+                        }
+                    ]
+                },
+                "resourceSyncChangeWebhook": {
+                    "description": "服务器资源更新机器人",
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "serverSSH": {
+                    "description": "服务器SSH",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/service.SystemSSHConfig"
+                        }
+                    ]
+                },
+                "webHost": {
+                    "description": "系统web Host地址",
+                    "type": "string"
+                }
+            }
+        },
+        "service.SystemKubeConfig": {
+            "type": "object",
+            "properties": {
+                "nodeMetaKeyPrefix": {
+                    "description": "展示到外层的自定义标签前缀",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "service.SystemSSHConfig": {
+            "type": "object",
+            "properties": {
+                "adminOnly": {
+                    "description": "仅开放超级管理员",
+                    "type": "boolean"
+                },
+                "enable": {
+                    "description": "开启",
+                    "type": "boolean"
+                }
+            }
+        },
+        "service.UpdateUserRet": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "id",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "状态",
+                    "type": "integer"
+                }
+            }
+        },
+        "service.UserGroupRet": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "description": "描述",
+                    "type": "string"
+                },
+                "groupPermit": {
+                    "description": "当前登录用户是否有该组权限",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "id",
+                    "type": "integer"
+                },
+                "isSuperAdmin": {
+                    "description": "是否超级管理员",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "用户组名",
+                    "type": "string"
+                },
+                "namespaceCount": {
+                    "description": "命名空间数",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "状态",
+                    "type": "integer"
+                },
+                "userCount": {
+                    "description": "用户数",
+                    "type": "integer"
+                }
+            }
+        },
+        "service.UserRet": {
+            "type": "object",
+            "properties": {
+                "avatarUrl": {
+                    "description": "头像地址",
+                    "type": "string"
+                },
+                "created_at": {
+                    "description": "创建时间",
+                    "type": "string"
+                },
+                "email": {
+                    "description": "邮箱地址",
+                    "type": "string"
+                },
+                "gitlab_id": {
+                    "description": "GitlabID",
+                    "type": "integer"
+                },
+                "gitlab_name": {
+                    "description": "用户名",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "状态",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "description": "更新时间",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "登录名",
+                    "type": "string"
+                }
+            }
+        },
+        "service.WebConfig": {
+            "type": "object",
+            "properties": {
+                "acmUIProxy": {
+                    "type": "string"
+                },
+                "enumMap": {
+                    "type": "string"
+                },
+                "externalLinks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/service.ExternalLink"
+                    }
+                },
+                "gitlabOauthConfig": {
+                    "$ref": "#/definitions/service.GitlabOauthConfig"
+                },
+                "grafanaPrefix": {
+                    "type": "string"
+                },
+                "grafanaUIProxy": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BasicAuth": {
+            "type": "basic"
+        }
+    }
+}
